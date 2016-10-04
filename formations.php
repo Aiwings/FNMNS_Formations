@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 	Plugin Name: Formations
 	Description: Gestion des Formations FNMNS
@@ -9,11 +9,11 @@
 	Text Domain : FNMNSformations
 */
 
-	class FNMNSformations
+	class FNMNS_Formations
 	{
 		public function __construct()
 		{
-			
+
 			$this->include_views();
 			$this->include_functions();
 			$this->include_carte();
@@ -27,21 +27,35 @@
 			add_action( 'post_edit_form_tag' , array($this,'post_edit_form_tag' ));
 			add_filter('admin_head',array($this,'ShowTinyMCE'));
 		}
-		
+
+		public static function install()
+		{
+			include_once plugin_dir_path( __FILE__ ).'/functions/install.php';
+		}
+		public static function uninstall()
+		{
+			global $wpdb;
+			$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}centre_formation;");
+			$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}discipline;");
+			$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}formation;");
+			$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}preinscrits;");
+		}
+
+
 		private function include_views()
 		{
 			include_once plugin_dir_path( __FILE__ ).'/views/normalview.php';
 			include_once plugin_dir_path( __FILE__ ).'/views/adminview.php';
 			include_once plugin_dir_path( __FILE__ ).'/views/centres.php';
-			include_once plugin_dir_path( __FILE__ ).'/views/searchcentres.php'; 
+			include_once plugin_dir_path( __FILE__ ).'/views/searchcentres.php';
 			include_once plugin_dir_path( __FILE__ ).'/views/searchinscrits.php';
 			include_once plugin_dir_path( __FILE__ ).'views/searchdiscipline.php';
 			include_once plugin_dir_path( __FILE__ ).'views/form_inscription.php';
-			include_once plugin_dir_path( __FILE__ ).'views/inscrits.php';    
+			include_once plugin_dir_path( __FILE__ ).'views/inscrits.php';
 		}
-		
+
 		private function include_functions()
-		{	
+		{
 			include_once plugin_dir_path( __FILE__ ).'/functions/add.php';
 			include_once plugin_dir_path( __FILE__ ).'/functions/add_discipline.php';
 			include_once plugin_dir_path( __FILE__ ).'/functions/delete.php';
@@ -57,12 +71,12 @@
 			include_once plugin_dir_path( __FILE__ ).'/functions/cleanUp.php';
 			include_once plugin_dir_path( __FILE__ ).'/functions/pieces.php';
 			include_once plugin_dir_path( __FILE__ ).'/functions/fichier.php';
-			
+
 		}
 		private function include_carte(){
 			include_once plugin_dir_path( __FILE__ ).'/carte/poly.php';
 			include_once plugin_dir_path( __FILE__ ).'/carte/centres.php';
-			include_once plugin_dir_path( __FILE__ ).'/carte/infowindow.php';	
+			include_once plugin_dir_path( __FILE__ ).'/carte/infowindow.php';
 		}
 
 		private function include_inscription()
@@ -83,7 +97,7 @@
 				wp_enqueue_style( "inscription", plugins_url("inscription/css/styles.css",__FILE__));
 			}
 		}
-		
+
 		public function inscription()
 		{
 			ob_start();
@@ -91,25 +105,25 @@
 			return ob_get_clean();
 		}
 
-	
+
 		private function shortcodes()
 		{
 			add_shortcode( 'formations', array($this,'formations') );
 			add_shortcode( 'carte', array($this,'carte' ));
 			add_shortcode( 'inscription_form', array($this,'inscription' ));
 		}
-		
+
 		private function ajax_actions()
 		{
 			add_action( 'wp_ajax_ajout_formation', 'ajout_formation' );
 			add_action( 'wp_ajax_nopriv_ajout_formation', 'ajout_formation' );
-			
+
 			add_action( 'wp_ajax_ajout_discipline', 'ajout_discipline' );
 			add_action( 'wp_ajax_nopriv_ajout_discipline', 'ajout_discipline' );
-			
+
 			add_action( 'wp_ajax_form_delete', 'form_delete' );
 			add_action( 'wp_ajax_nopriv_form_delete', 'form_delete' );
-			
+
 			add_action( 'wp_ajax_modif_formation', 'modif_formation' );
 			add_action( 'wp_ajax_nopriv_modif_formation', 'modif_formation' );
 
@@ -151,16 +165,16 @@
 
 			add_action( 'wp_ajax_update', 'update' );
 			add_action( 'wp_ajax_nopriv_update', 'update' );
-			
+
 			add_action( 'wp_ajax_pieces', 'pieces' );
 			add_action( 'wp_ajax_nopriv_pieces', 'pieces' );
 
 		}
-		
+
 		public function post_edit_form_tag( ) {
 			echo 'enctype="multipart/form-data"';
 		}
-		
+
 		function ShowTinyMCE() {
 			// conditions here
 			wp_enqueue_script( 'common' );
@@ -174,15 +188,15 @@
 			do_action("admin_print_styles-post-php");
 			do_action('admin_print_styles');
 		}
-		
+
 		public function map_scripts()
 		{
 				global $wpdb;
 				$sql_map = 'SELECT ID FROM `wp_posts` WHERE `post_title` = "Centres de Formation" AND post_status="publish" ;';
-		
-				$mapID = $wpdb->get_var($sql_map);	
 
-		
+				$mapID = $wpdb->get_var($sql_map);
+
+
 				if(is_single($mapID) && !current_user_can( 'manage_options' )){
 
 				wp_enqueue_script( 'GoogleMap','https://maps.googleapis.com/maps/api/js?key=AIzaSyA0goj_KyUSm3Dvl4zAz-S1ebCYOvK8lGY' );
@@ -196,16 +210,16 @@
 				wp_localize_script('carte_points', 'imageurl',  plugins_url('/carte/img/',__FILE__) );
 			}
 		}
-		
+
 		public function formations_scripts()
 		{
 			wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
 			wp_enqueue_script( 'PolyFiller','http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js' );
 
-			
+
 			wp_enqueue_script( 'ajout', plugins_url("js/ajout.js",__FILE__), array( 'jquery') , '1.0' );
 			wp_localize_script('ajout', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
-			
+
 			wp_enqueue_script( 'modif', plugins_url("js/modif.js",__FILE__), array( 'jquery') , '1.0' );
 			wp_localize_script('modif', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 
@@ -219,15 +233,15 @@
 
 			wp_enqueue_style( "formations", plugins_url("css/style.css",__FILE__));
 		}
-		
+
 		public function carte()
 		{
 			ob_start();
 
 			if ( !current_user_can( 'manage_options' ) )  {
-				
+
 			?>
-				
+
 				<div id="map" style="width:100%;height:500px;"></div>
 		<?php }
 			else {
@@ -236,12 +250,12 @@
 
 			return ob_get_clean();
 		}
-		
+
 		public function formations()
 		{
 			ob_start();
-			
-			if ( !current_user_can( 'manage_options' ) )  
+
+			if ( !current_user_can( 'manage_options' ) )
 			{
 				$normal = new NormalView();
 			}
@@ -253,4 +267,3 @@
 		}
 	}
 	$formations = new FNMNSformations();
-
