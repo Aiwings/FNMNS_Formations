@@ -266,4 +266,4 @@
 			return ob_get_clean();
 		}
 	}
-	$formations = new FNMNSformations();
+	$formations = new FNMNS_Formations();
