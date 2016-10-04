@@ -27,7 +27,7 @@
 			add_action( 'wp_enqueue_scripts', array($this,'formations_scripts') );
 			add_action( 'wp_enqueue_scripts', array($this,'map_scripts') );
 			add_action( 'wp_enqueue_scripts', array($this,'inscription_scripts') );
-			add_action( 'post_edit_form_tag' , array($this,'post_edit_form_tag' ));
+			add_action( 'post_edit_form_tag' ,array($this,'post_edit_form_tag' ));
 			add_filter('admin_head',array($this,'ShowTinyMCE'));
 		}
 

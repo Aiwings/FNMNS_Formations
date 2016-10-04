@@ -4,18 +4,18 @@
 
 
 	$sql_centres = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}centre_formation`(";
-	$sql_centres. = "`id` int(11) NOT NULL AUTO_INCREMENT, ";
-	$sql_centres. = "`centre` varchar(80) NOT NULL, ";
-	$sql_centres. = "`adresse` varchar(255) NOT NULL, ";
-	$sql_centres. = "`code_postal` int(11) NOT NULL, ";
-	$sql_centres. = "`ville` varchar(80) NOT NULL, ";
-	$sql_centres. = "`e_mail` varchar(80) NOT NULL, ";
-	$sql_centres. = "`site` varchar(100) NOT NULL, ";
-	$sql_centres. = "`image` varchar(80) NOT NULL, ";
-	$sql_centres. = "`telephone` int(255) NOT NULL, ";
-	$sql_centres. = "`gerant` varchar(100) NOT NULL, ";
-	$sql_centres. = "`autre` text NOT NULL, ";
-	$sql_centres. = "PRIMARY KEY (`id`) );";
+	$sql_centres.= "`id` int(11) NOT NULL AUTO_INCREMENT, ";
+	$sql_centres.= "`centre` varchar(80) NOT NULL, ";
+	$sql_centres.= "`adresse` varchar(255) NOT NULL, ";
+	$sql_centres.= "`code_postal` int(11) NOT NULL, ";
+	$sql_centres.= "`ville` varchar(80) NOT NULL, ";
+	$sql_centres.= "`e_mail` varchar(80) NOT NULL, ";
+	$sql_centres.= "`site` varchar(100) NOT NULL, ";
+	$sql_centres.= "`image` varchar(80) NOT NULL, ";
+	$sql_centres.= "`telephone` int(255) NOT NULL, ";
+	$sql_centres.= "`gerant` varchar(100) NOT NULL, ";
+	$sql_centres.= "`autre` text NOT NULL, ";
+	$sql_centres.= "PRIMARY KEY (`id`) );";
 
 	$sql_discipline.= "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}discipline` (";
 	$sql_discipline.= "`id` int(11) NOT NULL AUTO_INCREMENT, ";
