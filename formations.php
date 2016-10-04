@@ -13,6 +13,8 @@
 	{
 		public function __construct()
 		{
+			register_activation_hook(__FILE__, array('HomeNewsletter', 'install'));
+			register_uninstall_hook(__FILE__, array('HomeNewsletter', 'uninstall'));
 
 			$this->include_views();
 			$this->include_functions();
