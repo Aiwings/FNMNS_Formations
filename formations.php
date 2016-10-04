@@ -1,12 +1,12 @@
 <?php
 /*
-	Plugin Name: Formations
+	Plugin Name: FNMNS_Formations
 	Description: Gestion des Formations FNMNS
 	Plugin URI: https://github.com/Aiwings/FNMNS_Formations
 	GitHub Plugin URL: https://github.com/Aiwings/FNMNS_Formations
 	Version: 0.1
 	Author: Guillaume Roux
-	Text Domain : FNMNSformations
+	Text Domain : FNMNS_Formations
 */
 
 	class FNMNS_Formations
