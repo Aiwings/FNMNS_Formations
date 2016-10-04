@@ -9,12 +9,12 @@
 	Text Domain : FNMNS_Formations
 */
 
-	class FNMNS_Formations
+	class
 	{
 		public function __construct()
 		{
-			register_activation_hook(__FILE__, array('HomeNewsletter', 'install'));
-			register_uninstall_hook(__FILE__, array('HomeNewsletter', 'uninstall'));
+			register_activation_hook(__FILE__, array('FNMNS_Formations', 'install'));
+			register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
 
 			$this->include_views();
 			$this->include_functions();
