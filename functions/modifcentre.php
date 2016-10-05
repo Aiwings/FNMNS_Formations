@@ -78,11 +78,9 @@ function modif_centre()
 				"sql" =>$sql_update);
 			}
 
-			echo json_encode($result) ;
-
-
-
+			die( json_encode($result));
 		}
 	}
 	die();
 }
+?>

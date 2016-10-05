@@ -1,5 +1,4 @@
-<?php
-function export()
+<?php function export()
 {
 	//processing form submitted
 	setlocale (LC_TIME, 'fr_FR.utf8','fra');

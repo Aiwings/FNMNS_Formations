@@ -1,6 +1,4 @@
-<?php
-
-function ajout_centre()
+<?php function ajout_centre()
 {
 
 	if(isset($_POST['nom_centre']) && isset($_POST['adresse_centre']) && isset($_POST['ville_centre'])  && isset($_POST['email_centre'])  && isset($_POST['tel_centre'])&& isset($_POST['gerant_centre'])  )

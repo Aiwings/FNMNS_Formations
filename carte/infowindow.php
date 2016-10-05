@@ -1,17 +1,16 @@
-<?php 
-function infowindow()
+<?php function infowindow()
 {
 	if (isset($_POST['id']))
 	{
 		global $wpdb ;
-	
+
 		$url = get_bloginfo("url")."/export/img/centres/";
 
 		$sql_select = 'SELECT * FROM `centre_formation` WHERE id="'.$_POST['id'].'";';
 
 		$reponse_select = $wpdb->get_results($sql_select );
 
-	if (sizeof($reponse_select)== 1) 
+	if (sizeof($reponse_select)== 1)
 	{
 		foreach ($reponse_select as $row)
 			{
@@ -43,7 +42,7 @@ function infowindow()
 			<?php echo $row->adresse; ?><br />
 			<?php if(isset ($row->code_postal)) echo $row->code_postal; ?> <span style="text-transform:uppercase;"><?php echo $row->ville; ?></span><br />
 			<?php if(isset ($row->site)) echo $row->site; ?>
-			<?php if(isset ($row->autre)) { 
+			<?php if(isset ($row->autre)) {
 						$autre = str_replace ("&lt;","<",$row->autre);
 						$autre = str_replace ("&gt;",">",$autre);
 				echo $autre;
@@ -52,13 +51,14 @@ function infowindow()
 	</tr>
 </tbody>
 </table>
-					
+
 					<?php
 					}
-				
+
 			}
-	
+
 
 	}
 	die();
 }
+?>

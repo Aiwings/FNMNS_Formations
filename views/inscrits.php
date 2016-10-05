@@ -1,6 +1,4 @@
-<?php
-
-function inscrits()
+<?php function inscrits()
 {
 	setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
@@ -22,12 +20,6 @@ function inscrits()
 		{
 			$formation = $row;
 		}
-
-
-
-
-
-
 
 	$sql_preinscrits ="SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE `idformation` = '".$_POST['idformation']."' AND `estinscrit` = '".$_POST["inscrit"]."';";
 
@@ -151,3 +143,4 @@ function inscrits()
 	}
 	die();
 }
+?>

@@ -1,5 +1,4 @@
-<?php
-function select_centres()
+<?php function select_centres()
 {
 	if( isset($_POST["id"]))
 	{
@@ -30,9 +29,10 @@ function select_centres()
 								"autre"=> $row->autre,
 						);
 					}
-					echo json_encode($element);
+
 				}
 
 	}
-	die();
+	die(json_encode($element));
 }
+?>

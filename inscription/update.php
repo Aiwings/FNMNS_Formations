@@ -1,6 +1,4 @@
-<?php
-
-function update()
+<?php function update()
 {
     try
     {

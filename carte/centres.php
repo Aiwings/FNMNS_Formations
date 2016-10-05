@@ -1,5 +1,4 @@
-<?php
-function carte_centres()
+<?php function carte_centres()
 {
 	global $wpdb;
 
@@ -21,5 +20,4 @@ function carte_centres()
 		}
 	die();
 }
-
 ?>

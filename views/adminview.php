@@ -1,6 +1,4 @@
-<?php
-
-	class AdminView
+<?php class AdminView
 	{
 		private $date;
 		public function __construct()
@@ -238,5 +236,4 @@
 
 
 	}
-
 ?>

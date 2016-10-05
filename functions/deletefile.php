@@ -1,5 +1,4 @@
-<?php
-function delfile($id,$mode)
+<?php function delfile($id,$mode)
 	{
 		$target_dir="";
 		$target_file="";
@@ -37,3 +36,4 @@ function delfile($id,$mode)
 		return unlink($target_file);
 
 	}
+?>

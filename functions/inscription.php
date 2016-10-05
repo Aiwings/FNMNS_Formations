@@ -1,5 +1,4 @@
-<?php
-function inscription()
+<?php function inscription()
 {
 	if( isset($_POST['id']))
 	{

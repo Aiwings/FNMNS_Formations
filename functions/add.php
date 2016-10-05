@@ -1,6 +1,4 @@
-<?php
-
-function ajout_formation()
+<?php function ajout_formation()
 {
 
 	$textresult ="";
@@ -85,3 +83,4 @@ function ajout_formation()
 
 	die( json_encode($tab ));
 }
+?>

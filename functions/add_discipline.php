@@ -1,6 +1,4 @@
-<?php
-
-function ajout_discipline()
+<?php function ajout_discipline()
 {
 	if ( isset($_POST["discipline"]))
 	{
@@ -67,5 +65,4 @@ function ajout_discipline()
 	}
 		die();
 }
-
 ?>

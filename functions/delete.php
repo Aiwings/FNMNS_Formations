@@ -1,9 +1,5 @@
-<?php
-
-function form_delete()
+<?phpfunction form_delete()
 {
-
-
 	if(isset($_POST["id"]))
 	{
 		global $wpdb;
@@ -53,7 +49,4 @@ function form_delete()
 	}
 
 }
-
-
-
 ?>

@@ -1,5 +1,4 @@
-<?php
-function preinscrire()
+<?php function preinscrire()
 {
 
 	if (isset($_POST['idformation']))
@@ -51,7 +50,6 @@ function preinscrire()
 				foreach ($rep_user as $user)
 				{
 					send($formation,$user);
-					die();
 				}
 			}
 		}
@@ -62,7 +60,7 @@ function preinscrire()
 				"status" => $wpdb->print_error()
 			);
 			echo json_encode($result);
-			exit(1);
+			die(1);
 		}
 
 	}
@@ -72,7 +70,7 @@ function preinscrire()
 			"success" => "false",
 			"status" =>"$e->getMessage()");
 			echo json_encode($result);
-			exit(1);
+			die(1);
 	}
 
 	}
@@ -81,7 +79,7 @@ function preinscrire()
 			"success" => "false",
 			"status" =>"No post");
 			echo json_encode($result);
-			exit(1);
+			die(1);
 	}
 
 }
@@ -148,13 +146,12 @@ function send($formation,$user)
 			"success" => "true",
 			"status" =>"Message Envoyé",
 			"url"=>$urlfichier);
-			echo json_encode($result);
+			die( json_encode($result));
 		} else {
 			$result = array(
 			"success" => "false",
 			"status" =>$mail->ErrorInfo);
-			echo json_encode($result);
-			exit(1);
+			die(json_encode($result));
 		}
 
 
@@ -162,14 +159,8 @@ function send($formation,$user)
 		$result = array(
 			"success" => "false",
 			"status" =>"$e->getMessage()");
-			echo json_encode($result);
-			exit(1);
+			die(json_encode($result));
+
 	}
  }
-
-
-
-
-
-
 ?>

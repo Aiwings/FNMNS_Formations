@@ -1,7 +1,5 @@
 
-<?php
-
-function searchcentres()
+<?php function searchcentres()
 {
 	global $wpdb;
 
@@ -23,6 +21,6 @@ function searchcentres()
 		$centres.= '</select>';
 	}
 
-return $centres;
+	return $centres;
 }
 ?>

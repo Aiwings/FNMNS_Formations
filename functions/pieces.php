@@ -10,7 +10,6 @@
 	$sql_preinscrits ="SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE `idformation` = '".$_POST['idformation']."' AND `estinscrit` = '".$_POST["inscrit"]."';";
 
 	$reponse_inscrits  = $wpdb->get_results($sql_preinscrits );
-
 ?>
 <div class="row">
 	<div class="col-md-2">
@@ -107,8 +106,8 @@
 				</div>
 			</div>
 		<?php
+			}
 		}
-	}
-	die();
+		die();
 	}
 ?>

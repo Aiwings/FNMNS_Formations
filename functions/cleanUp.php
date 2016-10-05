@@ -1,5 +1,4 @@
-<?php 
-function cleanUp()
+<?php function cleanUp()
 {
     $files =scandir ( __DIR__);
 
@@ -7,9 +6,10 @@ function cleanUp()
     {
         if(strrpos($file,'.xls') !=false)
         {
-            $url =  __DIR__.'/'. $file  ;  
+            $url =  __DIR__.'/'. $file  ;
             unlink($url);
         }
     }
 
 }
+?>

@@ -1,5 +1,4 @@
-<?php
-function modif_inscrits()
+<?php function modif_inscrits()
 {
 	global $wpdb;
 
@@ -68,7 +67,7 @@ function modif_inscrits()
 					"status"=>"Pas de id"
 				);
 	}
-	echo json_encode($result);
-	die();
+	die(json_encode($result));
+
 }
 ?>

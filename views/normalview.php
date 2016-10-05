@@ -1,6 +1,4 @@
-<?php
-
-	class NormalView
+<?php class NormalView
 	{
 		private $date;
 
@@ -146,8 +144,6 @@
 			</div>
 		</div>
 		<?php
-
 		}
-
-
 	}
+?>

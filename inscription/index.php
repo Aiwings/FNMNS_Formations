@@ -1,6 +1,4 @@
-<?php
-
-function inscription_form()
+<?php function inscription_form()
 {
     if(isset($_GET['userID']) && isset($_GET['formationID']))
     {

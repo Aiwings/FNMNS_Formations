@@ -3,7 +3,6 @@ function modif_formation()
 {
 	if ( isset( $_POST["submit"]) && isset( $_POST["id"]) )
 	{
-
 		global $wpdb;
 		$wpdb->show_errors();
 		$result ="";
@@ -189,7 +188,8 @@ function modif_formation()
 						"status"=>$result
 					);
 		}
-		echo json_encode($tab);
+		die(json_encode($tab));
 	}
 	die();
 }
+?>
