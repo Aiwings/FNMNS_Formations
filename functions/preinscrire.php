@@ -1,8 +1,8 @@
-<?php	
+<?php
 function preinscrire()
 {
-	
-	if (isset($_POST['idformation'])) 
+
+	if (isset($_POST['idformation']))
 	{
 		try{
 	global $wpdb;
@@ -19,10 +19,10 @@ function preinscrire()
 	$ville = htmlspecialchars($_POST['ville']);
 	$formationid = htmlspecialchars($_POST['idformation']);
 
-		$resultat = $wpdb->insert( 
-				'preinscrits', 
-				array( 
-						'titre' => $titre, 
+		$resultat = $wpdb->insert(
+				"{$wpdb->prefix}preinscrits",
+				array(
+						'titre' => $titre,
 						'nom' => $nom,
 						'prenom' => $prenom,
 						'adresse1' => $adresse1,
@@ -35,19 +35,19 @@ function preinscrire()
 					));
 		if($resultat != false )
 		{
-			$sql_formations = 'SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ';
-			$sql_formations.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-			$sql_formations.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'.' ';
-			$sql_formations.= 'WHERE formation.id = '.$_POST['idformation'].';';
-			
-			$reponse =  $wpdb->get_results($sql_formations );	
+			$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON JOIN {$wpdb->prefix}centre_formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
+			$sql_formations.="WHERE {$wpdb->prefix}formation.id = '".$id."';";
+
+			$reponse =  $wpdb->get_results($sql_formations );
 
 			foreach ($reponse as $formation)
 			{
-				$sql_user= 'SELECT * FROM `preinscrits` WHERE nom ="'. $nom.'" AND prenom ="'.$prenom.'" AND idformation ="'.$_POST['idformation'].'";';
+				$sql_user= 'SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE nom ="'. $nom.'" AND prenom ="'.$prenom.'" AND idformation ="'.$_POST['idformation'].'";';
 
-				$rep_user =  $wpdb->get_results($sql_user );	
-			
+				$rep_user =  $wpdb->get_results($sql_user );
+
 				foreach ($rep_user as $user)
 				{
 					send($formation,$user);
@@ -64,8 +64,8 @@ function preinscrire()
 			echo json_encode($result);
 			exit(1);
 		}
-	
-	}		    
+
+	}
 	catch( Exception $e) {
 
 		$result = array(
@@ -74,7 +74,7 @@ function preinscrire()
 			echo json_encode($result);
 			exit(1);
 	}
-		
+
 	}
 	else{
 			$result = array(
@@ -84,7 +84,7 @@ function preinscrire()
 			exit(1);
 	}
 
-}	
+}
 
 function send($formation,$user)
  {
@@ -117,7 +117,7 @@ function send($formation,$user)
 	$body .= '<p>Merci de bien vouloir nous transmettre les pièces requises en cliquant ';
 	$body .= '<a href="'.$urlupload.'">sur ce lien </a></p><br />';
 	$body .= '<a href="'.$urlfichier.'">';
-	$body .= $urlfichier.'</a>' ; 
+	$body .= $urlfichier.'</a>' ;
 	$body .= "<p>A bientôt sur ". $_SERVER['HTTP_HOST']."</p>";
 
 
@@ -127,10 +127,10 @@ function send($formation,$user)
   	$mail->CharSet = "utf-8";
 	$mail->Debugoutput = 'html';
 
-	
+
 	$mail->AddAddress($_POST["email"]);
 	$mail->AddReplyTo("contact@".$_SERVER['HTTP_HOST'],get_bloginfo('name'));
-	$mail->SetFrom( 'preinscription@'.$_SERVER['HTTP_HOST'],get_bloginfo('name'));	
+	$mail->SetFrom( 'preinscription@'.$_SERVER['HTTP_HOST'],get_bloginfo('name'));
 	$mail->AddBCC('guilhemrr@hotmail.com');
 	$mail->Subject = 'FNMNS | '. "Préinscription";
 	$mail->msgHTML($body);
@@ -156,8 +156,8 @@ function send($formation,$user)
 			echo json_encode($result);
 			exit(1);
 		}
-		
-	
+
+
 	}catch( Exception $e) {
 		$result = array(
 			"success" => "false",
@@ -166,10 +166,10 @@ function send($formation,$user)
 			exit(1);
 	}
  }
-	
-	
-	
-	
-	
+
+
+
+
+
 
 ?>

@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 function ajout_centre()
 {
-	
+
 	if(isset($_POST['nom_centre']) && isset($_POST['adresse_centre']) && isset($_POST['ville_centre'])  && isset($_POST['email_centre'])  && isset($_POST['tel_centre'])&& isset($_POST['gerant_centre'])  )
 	{
 		$centre = htmlspecialchars($_POST['nom_centre']);
@@ -11,8 +11,8 @@ function ajout_centre()
 		$email = htmlspecialchars($_POST['email_centre']);
 		$tel = htmlspecialchars($_POST['tel_centre']);
 		$gerant = htmlspecialchars($_POST['gerant_centre']);
-		
-		
+
+
 		if(isset($_POST['site_centre']))
 		{
 			$site = htmlspecialchars($_POST['site_centre']);
@@ -21,8 +21,8 @@ function ajout_centre()
 		{
 			$site ="";
 		}
-		
-		
+
+
 		if(isset($_POST['cp_centre']))
 		{
 			$cp = htmlspecialchars($_POST['cp_centre']);
@@ -31,7 +31,7 @@ function ajout_centre()
 		{
 			$cp ="";
 		}
-		
+
 		if(isset($_POST['autre_centre']))
 		{
 			$autre = htmlspecialchars($_POST['autre_centre']);
@@ -42,10 +42,10 @@ function ajout_centre()
 		}
 
 		global $wpdb;
-		$wpdb->show_errors();  
+		$wpdb->show_errors();
 		$insert	= array
-				( 
-					'centre' => $centre, 
+				(
+					'centre' => $centre,
 					'adresse' =>$adresse,
 					'code_postal' =>$cp,
 					'ville' =>$ville,
@@ -55,13 +55,13 @@ function ajout_centre()
 					'gerant' =>$gerant,
 					'autre' =>$autre,
 				);
-		
+
 		if($_FILES['image_centre']["name"]!="")
 		{
-			$image = new Fichier($_FILES['image_centre'],"image");		
+			$image = new Fichier($_FILES['image_centre'],"image");
 			$imageResult = $image->fileUpload("centres",'_'.$centre,"");
 			$imagename=$image->getName();
-			
+
 			if($imageResult["success"] == "true")
 			{
 				$insert['image'] = $imageResult["name"];
@@ -73,16 +73,15 @@ function ajout_centre()
 			}
 		}
 
-		
-		
-		$resultat = $wpdb->insert('centre_formation', $insert);
-  
-		
+
+
+		$resultat = $wpdb->insert("{$wpdb->prefix}centre_formation", $insert);
+
+
 		if($resultat == 1)
 			{
 				$result = array(
 				"success" => "true");
-				
 			}
 			else
 			{
@@ -91,10 +90,10 @@ function ajout_centre()
 					"status" =>$wpdb->print_error()
 					);
 			}
-		
+
 			echo json_encode($result) ;
-		
+
 		}
 	die();
-}	
+}
 ?>

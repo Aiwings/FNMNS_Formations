@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 function modif_centre()
 {
-	
+
 
 	if ( isset($_POST['id']))
 	{
@@ -18,13 +18,13 @@ function modif_centre()
 			$tel =  htmlspecialchars($_POST['tel_centre']);
 			$gerant =  htmlspecialchars($_POST['gerant_centre']);
 			$autre =  htmlspecialchars($_POST['autre_centre']);
-			
+
 			global $wpdb;
-			
+
 			if($_FILES['image_centre']["name"] == "")
 			{
-				
-				$sql_update = 'UPDATE `centre_formation` SET ';
+
+				$sql_update = 'UPDATE `{$wpdb->prefix}centre_formation` SET ';
 				$sql_update.= '`centre`="'.$centre.'",';
 				$sql_update.= '`adresse`="'.$adresse.'",';
 				$sql_update.= '`code_postal`="'.$cp.'",';
@@ -39,13 +39,13 @@ function modif_centre()
 			else
 			{
 
-			$image = new Fichier($_FILES['image_centre'],"image");		
+			$image = new Fichier($_FILES['image_centre'],"image");
 			$imageResult = $image->fileUpload("centres",'_'.$centre,"");
 			$imagename=$image->getName();
-				
+
 				if($imageResult["success"] == "true")
 				{
-					$sql_update = 'UPDATE `centre_formation` SET ';
+					$sql_update = 'UPDATE `{$wpdb->prefix}centre_formation` SET ';
 					$sql_update.= '`centre`="'.$centre.'",';
 					$sql_update.= '`adresse`="'.$adresse.'",';
 					$sql_update.= '`code_postal`="'.$cp.'",';
@@ -65,7 +65,7 @@ function modif_centre()
 				}
 			}
 			$resultat = $wpdb->query($sql_update);
-		
+
 			if($resultat ==1 )
 			{
 				$result = array(
@@ -77,11 +77,11 @@ function modif_centre()
 				"success" => "false",
 				"sql" =>$sql_update);
 			}
-		
+
 			echo json_encode($result) ;
-		
-		
-			
+
+
+
 		}
 	}
 	die();

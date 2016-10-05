@@ -17,7 +17,7 @@
 	$sql_centres.= "`autre` text NOT NULL, ";
 	$sql_centres.= "PRIMARY KEY (`id`) );";
 
-	$sql_discipline.= "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}discipline` (";
+	$sql_discipline.= "CREATE TABLE IF NOT EXISTS `SELECT discipline` (";
 	$sql_discipline.= "`id` int(11) NOT NULL AUTO_INCREMENT, ";
 	$sql_discipline.= "`discipline` varchar(70) NOT NULL, ";
 	$sql_discipline.= "PRIMARY KEY (`id`) );";
@@ -64,8 +64,8 @@
  	$sql_preinscrits .= ");";
 
 
-	$sql_centres = $wpdb->query($sql_centres);
-	$sql_centres = $wpdb->query($sql_discipline);
-	$sql_centres = $wpdb->query($sql_formations);
-	$sql_centres = $wpdb->query($sql_preinscrits);
+	$centres = $wpdb->query($sql_centres);
+	$discipline = $wpdb->query($sql_discipline);
+	$formations = $wpdb->query($sql_formations);
+	$preinscrits = $wpdb->query($sql_preinscrits);
 ?>

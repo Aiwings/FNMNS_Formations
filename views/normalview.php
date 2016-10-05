@@ -3,15 +3,15 @@
 	class NormalView
 	{
 		private $date;
-		
+
 		public function __construct()
 		{
 			setlocale (LC_ALL,"fr_FR");
-			
+
 			$this->date = date("Y-m-d", time());
 			$this->getRows();
 		}
-		
+
 		private function tabHeaders()
 		{
 			?>
@@ -43,42 +43,42 @@
 						</th>
 					</tr>
 			<?php
-			
+
 		}
-		
+
 		private function getRows()
 		{
 			global $wpdb;
-			
-			$sql_formations = "SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ";
-			$sql_formations.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-			$sql_formations.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'." ";
+
+			$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
 			$sql_formations.= 'WHERE `date_fin` > "'.$this->date.'" ORDER BY `date_debut`;';
 
 			$reponse_formations = $wpdb->get_results($sql_formations );
-		
-			
+
+
 			try
 			{
-				if (sizeof($reponse_formations) >= 1) 
+				if (sizeof($reponse_formations) >= 1)
 				{
 					$this->tabHeaders();
 					$this->displayRows($reponse_formations);
 					$this->tabEnd();
 				}
-				else 
+				else
 				{
 				?>
 					<h3 style="color:red">Désolé, Aucune Formation n'est prévue à ce jour</h3>
-				<?php 
+				<?php
 				}
 			}
-			catch( Exception $e) 
+			catch( Exception $e)
 			{
 				die('Erreur : ' . $e->getMessage());
-			} 
+			}
 		}
-		
+
 		private function displayRows($reponse_formations)
 		{
 			foreach ($reponse_formations as $row_formations)
@@ -92,7 +92,7 @@
 					</td>
 					<td >
 						<p  class="discipline" id="discipline_<?php echo $row_formations->id;?>">
-							<?php echo $row_formations->discipline;?> 
+							<?php echo $row_formations->discipline;?>
 						</p>
 					</td>
 					<td width="100px">
@@ -125,14 +125,14 @@
 					<td >
 						<a style="cursor:pointer;" onclick="preinscription(<?php echo $row_formations->id ; ?>)">Se Préinscrire</a>
 					</td>
-					
-				</tr>		
-				
+
+				</tr>
+
 				<?php
 			}
-			
+
 		}
-		
+
 		private function tabEnd()
 		{
 		?>
@@ -146,12 +146,8 @@
 			</div>
 		</div>
 		<?php
-			
+
 		}
-		
-		
+
+
 	}
-
-
-
-

@@ -1,43 +1,43 @@
-<?php 
+<?php
 
 function inscrits()
 {
 	setlocale (LC_TIME, 'fr_FR.utf8','fra');
-	
-	global $wpdb;
-	
-	try {
-	
-		$sql_formations = "SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ";
-		$sql_formations.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-		$sql_formations.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'." ";
-		$sql_formations.='WHERE formation.id = "'.$_POST['idformation'].'";';
 
-		$formation = array();		
-		
-		
+	global $wpdb;
+
+	try {
+
+		$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
+		$sql_formations.= "WHERE {$wpdb->prefix}formation.id = '".$_POST['idformation']."';";
+
+		$formation = array();
+
+
 		$reponse_formation = $wpdb->get_results($sql_formations );
 
 		foreach ($reponse_formation as $row)
 		{
 			$formation = $row;
 		}
-				
-	
-	
-	
-	
-	
-	
-	$sql_preinscrits ='SELECT * FROM `preinscrits` WHERE `idformation` = "'.$_POST['idformation'].'" AND `estinscrit` = "'.$_POST["inscrit"].'";';
-	
-	$reponse_inscrits  = $wpdb->get_results($sql_preinscrits );	
-	
+
+
+
+
+
+
+
+	$sql_preinscrits ="SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE `idformation` = '".$_POST['idformation']."' AND `estinscrit` = '".$_POST["inscrit"]."';";
+
+	$reponse_inscrits  = $wpdb->get_results($sql_preinscrits );
+
 		if( sizeof($reponse_inscrits)>=1)
 		{
 		?>
 		<h2>
-			<?php 
+			<?php
 			if($_POST["inscrit"] == 1)
 			{
 				echo "Inscrits";
@@ -46,14 +46,14 @@ function inscrits()
 			{
 				echo "Pré-inscrits";
 			}
-				echo  " a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y" , strtotime( $formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime($formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")"; 
+				echo  " a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y" , strtotime( $formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime($formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")";
 			?>
 		</h2>
 		<div style="padding-left:5%;padding-bottom:20px;" id ="export" class="row">
 			<span style="display:none" id="idformation"><?php echo $_POST['idformation'] ?> </span>
 			<a href="#" onclick="exporter(<?php echo $_POST['idformation'] ?>,<?php echo $_POST['inscrit'] ?>);"  title="Exporter au format Excel" >
-				Exporter au format Excel 
-			</a> 
+				Exporter au format Excel
+			</a>
 				<a href="#" id='suite' onclick="pieces(<?php echo $_POST['idformation'] ?>,<?php echo $_POST['inscrit'] ?>);"  title="Pièces requises" style="padding-left:15px;"  >
 					Afficher les pièces requises
 				</a>
@@ -65,10 +65,10 @@ function inscrits()
 				</div>
 				<div class="col-md-1">
 					Prenom
-				</div>	
+				</div>
 				<div class="col-md-2">
 					E-mail
-				</div>	
+				</div>
 				<div class="col-md-1">
 					Telephone
 				</div>
@@ -85,10 +85,10 @@ function inscrits()
 					Ville
 				</div>
 				<div class="col-md-1">
-						
+
 				</div>
 			</div>
-		<?php 
+		<?php
 			foreach ($reponse_inscrits as $preinscrit)
 			{
 				?>
@@ -99,10 +99,10 @@ function inscrits()
 							</div>
 							<div class="col-md-1">
 								<input type="text" name="prenom" value="<?php echo $preinscrit->prenom; ?>"  />
-							</div>	
+							</div>
 							<div class="col-md-2">
 								<input type="email"  name="email" value="<?php echo $preinscrit->email; ?>"  />
-							</div>	
+							</div>
 							<div class="col-md-1">
 								<input type="tel"  name="telephone" value="0<?php echo $preinscrit->telephone; ?>"  />
 							</div>
@@ -125,27 +125,27 @@ function inscrits()
 							{
 							?>
 							<div class="col-md-1">
-								<img style="width:30px;cursor:pointer;" src="<?php echo bloginfo('url');?>/wp-content/plugins/formations/img/feu_vert.png" alt="inscrire"  onclick ="inscrire(<?php echo $preinscrit->id; ?>);"title="inscrire" />
+								<img style="width:30px;cursor:pointer;" src="<?php echo FORMATION_URL;?>img/feu_vert.png" alt="inscrire"  onclick ="inscrire(<?php echo $preinscrit->id; ?>);"title="inscrire" />
 							</div>
-							<?php	
-							} 
+							<?php
+							}
 							?>
 							<input type="hidden" id="id" name="id" value="<?php echo $preinscrit->id; ?>" />
 						</form>
 					</div>
 			</tr>
 		<?php	} 		?>
-				
-			</div> 
+
+			</div>
 		<?php
 			}
 			else
 			{	?>
-				<p> il n'y a pas encore d'inscrits &agrave; ce jour</p>	
-		<?php 
+				<p> il n'y a pas encore d'inscrits &agrave; ce jour</p>
+		<?php
 			}
-				
-		}		    
+
+		}
 	catch( Exception $e) {
 		die('Erreur : ' . $e->getMessage());
 	}

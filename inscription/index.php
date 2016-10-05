@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function inscription_form()
 {
@@ -20,7 +20,7 @@ function inscription_form()
         <div class="header">
             <h1>
                 Formulaire d'inscription <br />
-                <small><?php echo $user->nom ." ". $user->prenom ; ?><br /> 
+                <small><?php echo $user->nom ." ". $user->prenom ; ?><br />
                     pour la formation du <?php echo strftime("%d/%m/%y",strtotime($formation->date_debut)) ." au ". strftime("%d/%m/%y",strtotime($formation->date_fin)) ; ?>
                 </small>
             </h1>
@@ -28,7 +28,7 @@ function inscription_form()
             <br />
         </div>
         <div class="row">
-                
+
             <fieldset class="form-group col-md-4 ">
                 <label for="date_naissance">Date de Naissance *</label>
                 <input type="date"  name="date_naissance" id="date_naissance" class="form-control" required />
@@ -39,7 +39,7 @@ function inscription_form()
                 <label for="lieu_naissance">Lieu de Naissance *</label>
                 <input type="text"  name="lieu_naissance" id="lieu_naissance" class="form-control" required />
             </fieldset>
-            
+
             <fieldset class="form-group col-md-4 ">
                 <label for="paiement">Moyen de Paiement *</label>
                 <select name="paiement" id="paiement" required style="margin:0;">
@@ -53,12 +53,12 @@ function inscription_form()
             <fieldset class="form-group col-md-3 ">
                 <label for="diplome">Diplôme </label>
                 <input type="text"  name="diplome" id="diplome" class="form-control"  />
-            </fieldset>  
+            </fieldset>
 
             <fieldset class="form-group col-md-3 ">
                 <label for="no_diplome">N° de Diplôme </label>
                 <input type="text"  name="no_diplome" id="no_diplome" class="form-control"  />
-            </fieldset>   
+            </fieldset>
 
             <fieldset class="form-group col-md-3 ">
                 <label for="date_diplome">Date de diplome </label>
@@ -68,88 +68,88 @@ function inscription_form()
             <fieldset class="form-group col-md-3 ">
                 <label for="dr_delivrance">DR de délivrance</label>
                 <input type="text"  name="dr_delivrance" id="dr_delivrance" class="form-control"  />
-            </fieldset> 
+            </fieldset>
         </div>
         <div class="row">
             <h2>Documents administratifs obligatoires</h2><br />
             <fieldset class="form-group col-md-3 obligatoire ">
-                <p style="line-height:25px;">Carte d'identité (recto verso) ou passeport *</p>  
+                <p style="line-height:25px;">Carte d'identité (recto verso) ou passeport *</p>
                 <div class="input">
                     <input type="file" name="carte" id="carte" required />
-                </div> 
+                </div>
             </fieldset>
 
             <fieldset class="form-group col-md-3 obligatoire ">
-                <p>Certificat Médical *</p>  
+                <p>Certificat Médical *</p>
                 <div class="input">
                     <input type="file" name="certif" id="certif" required />
-                </div> 
+                </div>
             </fieldset>
 
             <fieldset class="form-group col-md-3 obligatoire">
-                <p style="line-height:25px;" >Justificatif d'assurance maladie *</p>  
+                <p style="line-height:25px;" >Justificatif d'assurance maladie *</p>
                 <div class="input">
                     <input type="file" name="assurance" id="assurance" required />
-                </div> 
+                </div>
             </fieldset>
 
                 <fieldset class="form-group col-md-3 obligatoire">
-                <p>Attestation de recensement *</p>  
+                <p>Attestation de recensement *</p>
                 <div class="input">
                     <input type="file" name="defense" id="defense" required />
-                </div> 
+                </div>
             </fieldset>
         </div>
         <h2>Documents complémentaires</h2><br />
         <div class="row">
             <fieldset class="form-group col-md-3 options ">
-                <p>document 1</p>  
+                <p>document 1</p>
                 <div class="input">
                     <input type="file" name="doc1" id="doc1"  />
-                </div> 
+                </div>
             </fieldset>
-            
+
             <fieldset class="form-group col-md-3 options ">
-                <p>document 2</p>  
+                <p>document 2</p>
                 <div class="input">
                     <input type="file" name="doc2" id="doc2"  />
-                </div> 
+                </div>
             </fieldset>
 
             <fieldset class="form-group col-md-3 options">
-                <p>document 3</p>  
+                <p>document 3</p>
                 <div class="input">
                     <input type="file" name="doc3" id="doc3"  />
-                </div> 
+                </div>
             </fieldset>
 
             <fieldset class="form-group col-md-3 options">
-                <p>document 4</p>  
+                <p>document 4</p>
                 <div class="input">
                     <input type="file" name="doc4" id="doc4"  />
-                </div> 
+                </div>
             </fieldset>
         </div>
             <div class="row">
             <fieldset class="form-group col-md-4 options">
-                <p>document 5</p>  
+                <p>document 5</p>
                 <div class="input">
                     <input type="file" name="doc5" id="doc5"  />
-                </div> 
+                </div>
             </fieldset>
 
                 <fieldset class="form-group col-md-4 options">
-                <p>document 6</p>  
+                <p>document 6</p>
                 <div class="input">
                     <input type="file" name="doc6" id="doc6"  />
-                </div> 
+                </div>
             </fieldset>
 
                 <fieldset class="form-group col-md-4 options">
-                <p>document 7</p>  
+                <p>document 7</p>
                 <div class="input">
                     <input type="file" name="doc7" id="doc7"  />
-                </div> 
+                </div>
             </fieldset>
 
         </div>
@@ -172,20 +172,20 @@ function select($item)
     switch($item)
     {
         case "userID" :
-        $sql_select ='SELECT * FROM preinscrits WHERE id = "'.$_GET['userID'].'";';
+        $sql_select ='SELECT * FROM {$wpdb->prefix}preinscrits WHERE id = "'.$_GET['userID'].'";';
         break;
-           
+
         case "formationID" :
-        $sql_select = "SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ";
-        $sql_select.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-        $sql_select.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'." ";
-        $sql_select.='WHERE formation.id = "'.$_GET['formationID'].'";';
+		$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON JOIN {$wpdb->prefix}centre_formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
+        $sql_select.='WHERE {$wpdb->prefix}formation.id = "'.$_GET['formationID'].'";';
         break ;
 
     }
     try{
           $reponse =  $wpdb->get_results($sql_select );
-   
+
 		if(sizeof($reponse)==1)
 		{
 			foreach($reponse as $resultat)
@@ -193,15 +193,15 @@ function select($item)
                 return $resultat;
             }
         }
-        else 
+        else
         {
            throw new Exception("L'element ".$item." est introuvable");
         }
     }
-    catch (Exception $e) 
+    catch (Exception $e)
     {
         echo 'Exception reçue : ',  $e->getMessage(), "\n";
         exit(1);
     }
-} 
+}
 ?>

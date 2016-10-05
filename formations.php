@@ -29,6 +29,9 @@
 			add_action( 'wp_enqueue_scripts', array($this,'inscription_scripts') );
 			add_action( 'post_edit_form_tag' ,array($this,'post_edit_form_tag' ));
 			add_filter('admin_head',array($this,'ShowTinyMCE'));
+
+			define("FORMATION_ROOT",plugin_dir_path( __FILE__ ));
+			define("FORMATION_URL",plugins_url("/",__FILE__ ));
 		}
 
 		public static function install()
@@ -216,7 +219,7 @@
 
 		public function formations_scripts()
 		{
-			wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
+			//wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
 			wp_enqueue_script( 'PolyFiller','http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js' );
 
 
@@ -270,3 +273,4 @@
 		}
 	}
 	$formations = new FNMNS_Formations();
+?>

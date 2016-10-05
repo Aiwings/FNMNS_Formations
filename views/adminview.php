@@ -1,23 +1,23 @@
-<?php 
+<?php
 
-	class AdminView 
+	class AdminView
 	{
 		private $date;
 		public function __construct()
 		{
 			setlocale (LC_ALL,"fr_FR");
 			$this->date = date("Y-m-d", time());
-			
+
 			$this->getRows();
 			$this->addForm();
 			$this->popup();
 		}
-		
+
 		private function tabHeaders()
 		{
 			?>
+			<h2>Liste des formations</h2>
 			<div class="table">
-				<h2>Liste des formations</h2>
 				<table id="admin" class="formations">
 					<tr>
 						<th width="100px;" >
@@ -39,10 +39,10 @@
 							Lieu
 						</th>
 						<th>
-							<img alt="En Attente" title="En Attente" src="<?php echo plugins_url('formations/img/');?>feu_jaune.png" style="width:32px"/>
+							<img alt="En Attente" title="En Attente" src="<?php echo FORMATION_URL;?>img/feu_jaune.png" style="width:32px"/>
 						</th>
 						<th>
-							<img alt="Inscrits" title="Inscrits" src="<?php echo plugins_url('formations/img/');?>feu_vert.png" style="width:32px"/>
+							<img alt="Inscrits" title="Inscrits" src="<?php echo FORMATION_URL;?>img/feu_vert.png" style="width:32px"/>
 						</th>
 						<th width="100px">
 							Dept
@@ -56,23 +56,23 @@
 					</tr>
 			<?php
 		}
-		
+
 		private function getRows()
 		{
 			global $wpdb;
-			
-			$sql_formations = 'SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ';
-			$sql_formations.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-			$sql_formations.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'." ";
-			$sql_formations.= 'WHERE `date_fin` > "'.$this->date.'" ORDER BY `date_debut` ;';
-			
-			
+
+			$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+			$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
+			$sql_formations.= 'WHERE `date_fin` > "'.$this->date.'" ORDER BY `date_debut`;';
+
+
 			$reponse_formations = $wpdb->get_results($sql_formations );
-			
+
 
 			try
 			{
-				if (sizeof($reponse_formations)>= 1) 
+				if (sizeof($reponse_formations)>= 1)
 				{
 					$this->tabHeaders();
 					$this->displayRows($reponse_formations);
@@ -84,21 +84,21 @@
 					<h3 style="color:red">Ajouter une Formation</h3>
 					<?php
 				}
-			
-				
+
+
 			}
-			catch( Exception $e) 
+			catch( Exception $e)
 			{
 				die('Erreur : ' . $e->getMessage());
-			} 
+			}
 		}
-		
+
 		private function displayRows($reponse_formations)
 		{
 			foreach ($reponse_formations as $row_formations)
 			{
 				?>
-			
+
 				<tr id="<?php echo $row_formations->id;?>">
 					<td  class="centre" id="centre_<?php echo $row_formations->id;?>">
 						<a onclick="displaywindow(<?php echo $row_formations->idCentre ;?>)">
@@ -107,7 +107,7 @@
 					</td>
 					<td >
 						<p  class="discipline" id="discipline_<?php echo $row_formations->id;?>" onclick="modif(this)">
-							<?php echo $row_formations->discipline;?> 
+							<?php echo $row_formations->discipline;?>
 						</p>
 					</td>
 					<td style="overflow:hidden;width:100px;">
@@ -149,63 +149,66 @@
 					<td>
 						<a style="cursor:pointer;"onclick="formDelete(<?php echo $row_formations->id; ?>)">X</a>
 					</td>
-				<tr>		
+				<tr>
 				<?php
 			}
 		}
-		
+
 		private function tabEnd()
 		{
-			?> 
+			?>
 			</table>
-			</div>
+		</div>
 			<?php
 		}
-		
+
 		private function addForm()
 		{
 			?>
 			<h2>Ajouter une formation</h2>
-			<div class="row">
-				<form name="ajoutForm"enctype="multipart/form-data" method="POST" id="ajoutForm">
-					
-						<div class="col-md-1" style="overflow:hidden">
+
+				<form name="ajoutForm"enctype="multipart/form-data" method="POST" id="ajoutForm" class="row">
+					<div class="col-md-3">
+						<div class="col-md-6" style="overflow:hidden">
 							<?php echo 	searchcentres(); ?>
 						</div>
-					
-						<?php echo 	searchdisciplines(); ?>
-					
+						<div class="col-md-6" style="overflow:hidden">
+							<?php echo 	searchdisciplines(); ?>
+						</div>
+					</div>
 					<div class="col-md-1">
-						<div class="input-file-container" 
+						<div class="input-file-container"
 							<input class="input-file" id="fileInfo"   name="fileInfo" type="file" value="this.value">
 							<label for="fileInfo" class="input-file-trigger" tabindex="0">Infos...</label>
 						</div>
-						<p class="file-return"></p>				
-					</div>
-					<div class="col-md-2">
-						<input type="date" required name="date_debut" id="date_debut"  />
-					</div>
-					<div class="col-md-2">
-						<input type="date" required name="date_fin" id="date_fin"  />
-					</div>
-					<div class="col-md-1">
-						<input type="text" required name="lieu"  id="lieu" placeholder="lieu" />
-					</div>
-					<div class="col-md-1">
-						<input type="text" required name="departement" id="departement" placeholder="00" pattern="[0-9]{2}" />
-					</div>
-					<div class="col-md-1">
-						<div class="input-file-container" >
-							<input class="input-file" id="fichier"  required name="fichier" type="file" value="this.value">
-							<label for="fichier" class="input-file-trigger" tabindex="0">Fichier...</label>
-						</div>
 						<p class="file-return"></p>
 					</div>
-					<div class="col-md-1">
-						<input type="submit" name="add_submit" value="+" />
+					<div class="col-md-2">
+						<input type="date" required name="date_debut" id="date_debut" style="width:100%" />
+					</div>
+					<div class="col-md-2">
+						<input type="date" required name="date_fin" id="date_fin" style="width:100%"  />
+					</div>
+					<div class="col-md-4">
+						<div class="col-md-5">
+							<input type="text" required name="lieu"  id="lieu" placeholder="lieu" />
+						</div>
+						<div class="col-md-3">
+							<input type="text" required name="departement" id="departement" placeholder="00" pattern="[0-9]{2}" />
+						</div>
+						<div class="col-md-3">
+							<div class="input-file-container" >
+								<input class="input-file" id="fichier"  required name="fichier" type="file" value="this.value">
+								<label for="fichier" class="input-file-trigger" tabindex="0">Fichier...</label>
+							</div>
+							<p class="file-return"></p>
+						</div>
+						<div class="col-md-1">
+							<input type="submit" name="add_submit" value="+" />
+						</div>
 					</div>
 				</form>
-			</div>
+
 			<p id="response"></p>
 			<?php
 		}
@@ -230,10 +233,10 @@
 					</div>
 				</div>
 			</div>
-			<?php 
+			<?php
 		}
-		
-		
+
+
 	}
 
 ?>

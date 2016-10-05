@@ -26,7 +26,7 @@ var startAdd = function (e)
 {
 
 	e.preventDefault();
-	
+
 
 	var formData = new FormData(this);
 	// Display the values
@@ -35,10 +35,10 @@ var startAdd = function (e)
 
 	var date_debut = new Date(jQuery("#date_debut").val());
 	var date_fin = new Date(jQuery("#date_fin").val());
-	
+
 	if( testDate(date_debut,date_fin))
 	{
-	
+
 		 var ajaxRequest = jQuery.ajax(
 		 {
 				url : ajaxurl,
@@ -48,15 +48,15 @@ var startAdd = function (e)
 				contentType: false,
 
 				 }).done(addSuccess)
-				 .fail(addFail); 
+				 .fail(addFail);
 	}
 }
 
 function testDate(date_debut,date_fin)
 {
-	
+
 	var date = new Date();
-	
+
 		if(date_debut.getTime() > date_fin.getTime())
 	{
 	     var html=' <span style="color :red; font-style:bold;"> ';
@@ -65,7 +65,7 @@ function testDate(date_debut,date_fin)
 		jQuery('#response').html(html);
 		return false;
 	}
-	
+
 		if(date_debut.getTime() == date_fin.getTime())
 	{
 	     var html=' <span style="color :red; font-style:bold;"> ';
@@ -74,7 +74,7 @@ function testDate(date_debut,date_fin)
 		jQuery('#response').html(html);
 		return false;
 	}
-	
+
 	if(date_debut.getTime() <= date.getTime())
 	{
 		var html=' <span style="color :red; font-style:bold;"> ';
@@ -82,11 +82,11 @@ function testDate(date_debut,date_fin)
 		html+='</span>';
 		jQuery('#response').html(html);
 		return false;
-	} 
+	}
 	return true;
 }
 function addSuccess(data){
-	
+
 	var objet =JSON.parse(data);
 	try {
 		jQuery('#response').html(objet.text);
@@ -101,7 +101,7 @@ function addSuccess(data){
 		console.log(data);
          jQuery('#response').html(data);
     }
-	
+
 }
 
 function addFail(jqXHR, textStatus){
@@ -109,9 +109,9 @@ function addFail(jqXHR, textStatus){
 }
 
 
-function addPopup() 
+function addPopup()
 {
-	
+
 	var newDiscipline = prompt("Saisir la nouvelle discipline", "");
 if (newDiscipline) {
 	addDiscipline(newDiscipline)
@@ -126,7 +126,7 @@ function addDiscipline(discipline)
 		discipline :discipline
 		};
 	console.log(data);
-	
+
 	var ajaxRequest = jQuery.ajax( {
 			url : ajaxurl,
 			method :"POST",
@@ -134,7 +134,7 @@ function addDiscipline(discipline)
 			datatype:"json"
 			 }).done(afterDisCreation)
 			 .fail(onDisFail);
-	
+
 }
 function afterDisCreation(data)
 {
@@ -166,7 +166,7 @@ function formDelete(id)
 			action:'form_delete',
 			id:id
 		};
-		
+
 		var ajaxRequest = jQuery.ajax( {
 			url :ajaxurl,
 			method :"POST",
@@ -174,22 +174,22 @@ function formDelete(id)
 			datatype:"json"
 			 }).done(onDelete)
 			 .fail(onDisFail);
-	
+
 }
 
 function onDelete(data)
 {
-	
-		
+
+
 	try
-	{	
+	{
 		var object = JSON.parse(data);
 
-		
+		console.log(data);
 		if(object.success == "true")
 		{
 			jQuery("#".id).html("");
-			
+
 				var html = '<span style="color:green;">';
 				html+= 'La formation a bien été supprimée';
 				html+='</span>';
@@ -198,33 +198,25 @@ function onDelete(data)
 		}
 		else
 		{
-			
+
 			var html = '<span style="color:red;">';
 				html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + object.status;
 				html+='</span>';
-			
+
 		}
 
 		jQuery('#response').html(html);
-		
+
 	}
 	catch(err)
 	{
 		console.log(data);
 		document.getElementById("response").innerHTML = data;
 	}
-	
-	
+
+
 }
 function displaywindow(id)
 {
 
 }
-
-
-
-		
-		
-
-
-

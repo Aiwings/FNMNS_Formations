@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 function update()
 {
     try
     {
-        $nom =   htmlspecialchars ( $_POST["nom"] );  
+        $nom =   htmlspecialchars ( $_POST["nom"] );
         $prenom = substr ($_POST["prenom"],0,1);
         $nom = $nom .$prenom ;
         $formation = htmlspecialchars ($_POST["formation"]);
@@ -35,8 +35,8 @@ function update()
         {
             $dr_delivrance =  htmlspecialchars ( $_POST["dr_delivrance"]);
         }
-    } 
-    catch (Exception $e) 
+    }
+    catch (Exception $e)
     {
       die( 'Exception reçue : '.  $e->getMessage(). "\n");
     }
@@ -59,11 +59,11 @@ function update()
     $hasdocs = false ;
     for ($i=1;$i<=7;$i++)
     {
-       
+
         $document = $_FILES["doc".$i];
         if( $document["name"]!="")
         {
-            $hasdocs = true ; 
+            $hasdocs = true ;
             $doc = new Fichier($document,"pdf");
             $docOk = $doc->fileUpload("inscriptions","",$formation."_".$nom."_doc".$i."_");
             if($docOk["success"] !="true") {errors($doc); exit(1); }
@@ -74,10 +74,10 @@ function update()
         $wpdb->show_errors();
 
 
-       $reponse_modif =  $wpdb->update( 
-                'preinscrits', 
-                array( 
-                    'date_naissance' => $date_naissance,	
+       $reponse_modif =  $wpdb->update(
+                "{$wpdb->prefix}preinscrits",
+                array(
+                    'date_naissance' => $date_naissance,
                     'lieu_naissance' => $lieu_naissance,
                     'paiement' => $paiement,
                     'diplome' => $diplome,
@@ -88,9 +88,9 @@ function update()
                     'assurance' => $assurance->getName(),
                     'defense' => $defense->getName(),
                     'certif' => $certif->getName(),
-                ), 
-                array( 'id' => $_POST['userID'] ), 
-                array( 
+                ),
+                array( 'id' => $_POST['userID'] ),
+                array(
                     '%s',	// value1
                     '%s',
                     '%s',
@@ -103,11 +103,11 @@ function update()
                     '%s',
                     '%s'
 
-                ), 
-                array( '%d' ) 
+                ),
+                array( '%d' )
             );
 
-				if($reponse_modif == 1)// will die() true if succefull else it will die() false 
+				if($reponse_modif == 1)// will die() true if succefull else it will die() false
 				{
 					$result= array(
 						"success"=>"true"

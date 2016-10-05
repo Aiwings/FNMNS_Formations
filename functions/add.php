@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function ajout_formation()
 {
@@ -11,40 +11,40 @@ function ajout_formation()
 	$sql_insert ="";
 	$filename="";
 	$infoname="";
-	
-	if(  $_FILES["fichier"]["name"] !="" && isset($_POST["discipline"]) && $_POST["discipline"] != "add" )  
+
+	if(  $_FILES["fichier"]["name"] !="" && isset($_POST["discipline"]) && $_POST["discipline"] != "add" )
 	{
-	
-		global $wpdb;	
-		$sql_discipline = 'SELECT discipline FROM `discipline` WHERE `id` = "'.$_POST["discipline"].'" ;';
-		
+
+		global $wpdb;
+		$sql_discipline = "SELECT discipline FROM `{$wpdb->prefix}discipline` WHERE `id` = '".$_POST["discipline"]."' ;";
+
 		$discipline = $wpdb->get_var($sql_discipline);
 
-		
-		
+
+
 			if(isset($_FILES["fileInfo"]) && $_FILES["fileInfo"]["name"] !="")
 			{
 				$suf = '_'.$_POST['date_debut'].'_infos';
-				
+
 
 					$fileInfo = new Fichier($_FILES["fileInfo"],"pdf");
 					$inforesult = $fileInfo->fileUpload($discipline,$suf,"");
 					$infoname=$fileInfo->getName();
 			}
-		
-	
-			
+
+
+
 				$file = new Fichier($_FILES["fichier"],"pdf");
 				$fileresult = $file->fileUpload($discipline,'_'.$_POST['date_debut'],"");
 				$filename=$file->getName();
-			
-			
+
+
 			if ( $fileresult["success"] =="true" )
 			{
-			
+
 				$wpdb->show_errors();
-				$results_add = $wpdb->insert('formation',array(
-					
+				$results_add = $wpdb->insert("{$wpdb->prefix}formation",array(
+
 					"idDiscipline"=>$_POST["discipline"],
 					"date_debut"=>$_POST["date_debut"],
 					"date_fin"=>$_POST["date_fin"],
@@ -66,7 +66,7 @@ function ajout_formation()
 					$textresult.= "<span style=\"color:#FF0000\">Erreur dans le traitement de la requête SQL =".$wpdb->print_error()."</span>";
 				}
 			}
-			else 
+			else
 			{
 				$textresult.= "erreur transfert de ficher".$fileresult["status"];
 			}
@@ -77,13 +77,11 @@ function ajout_formation()
 
 	}
 
- 	
+
 	$tab = array(
 		"text"=>$textresult,
 		"success"=>$success
 	);
-	
-	die( json_encode($tab ));
-}	
-	
 
+	die( json_encode($tab ));
+}

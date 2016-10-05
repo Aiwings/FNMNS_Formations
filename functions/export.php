@@ -1,54 +1,54 @@
-<?php 
+<?php
 function export()
 {
 	//processing form submitted
 	setlocale (LC_TIME, 'fr_FR.utf8','fra');
 	if (!isset($_POST['idformation'])) exit;
-	
-	//include PHPExcel library
-	
-	try{
-		global $wpdb;
-		$formation = array();	
-		$sql_formations = "SELECT formation.*, centre_formation.centre, discipline.discipline FROM `formation` ";
-		$sql_formations.= 'LEFT JOIN discipline ON formation.idDiscipline =  discipline.id ';
-		$sql_formations.= 'LEFT JOIN centre_formation ON formation.idCentre =  centre_formation.id'." ";
-		$sql_formations.='WHERE formation.id = "'.$_POST['idformation'].'" ;';
 
-		
-		$reponse_formation = $wpdb->get_results($sql_formations );	
-		
+	//include PHPExcel library
+	global $wpdb;
+		$formation = array();
+	try{
+
+		$sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+		$sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
+		$sql_formations.="WHERE {$wpdb->prefix}formation.id = '".$_POST['idformation']."';";
+
+
+		$reponse_formation = $wpdb->get_results($sql_formations );
+
 		foreach ($reponse_formation as $row)
 		{
 			$formation = $row;
 		}
-	}		    
+	}
 	catch( Exception $e) {
 		die('Erreur : ' . $e->getMessage());
 	}
-	
-	if( $_POST['inscrit'] == 0) 
+
+	if( $_POST['inscrit'] == 0)
 	{
-		$title = "Preinscrits a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y", strtotime($formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime($formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")"; 
+		$title = "Preinscrits a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y", strtotime($formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime($formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")";
 	}else
 	{
-		$title = "Inscrits a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y" , strtotime( $formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime( $formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")"; 
+		$title = "Inscrits a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y" , strtotime( $formation->date_debut ))." ".strftime("au %A %d %B %Y" , strtotime( $formation->date_fin ))."  a ".$formation->lieu." (".$formation->departement .")";
 	}
-	
+
 	if(substr_count(__DIR__, 'functions') == 1)
 	{
-		$el =  substr(__DIR__, -10); 
+		$el =  substr(__DIR__, -10);
 		$dir = str_replace($el,'',__DIR__);
 	}
 
-	
+
 	include $dir.'/assets/PHPExcel/Classes/PHPExcel.php';
 	include $dir.'/assets/PHPExcel/Classes/PHPExcel/Writer/Excel2007.php';
-	
+
 	$workbook = new PHPExcel;
-	
+
 	$sheet = $workbook->getActiveSheet();
-	
+
 	$sheet->getColumnDimension('A')->setWidth(5);
 	$sheet->getColumnDimension('B')->setWidth(5);
 	$sheet->getColumnDimension('C')->setWidth(15);
@@ -71,7 +71,7 @@ function export()
 
 
 	$sheet->getRowDimension(2)->setRowHeight(20);
-	
+
 	$styleA2 = $sheet->getStyle('A2');
 	$styleA2->applyFromArray(array(
     'font'=>array(
@@ -81,10 +81,10 @@ function export()
 	'color'=>array(
 	'rgb'=>'DD2C00'))
     ));
-	
+
 	$letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M");
-	
-	
+
+
 	foreach ($letters as $lettre)
 	{
 		$style = $sheet->getStyle($lettre.'4');
@@ -96,10 +96,10 @@ function export()
         'color'=>array(
 		'rgb'=>'304FFE'))
 		));
-	}		 
-	
-	
-	
+	}
+
+
+
 	$sheet->setCellValue('A4','ID');
 	$sheet->setCellValue('B4','Titre');
 	$sheet->setCellValue('C4','Nom');
@@ -119,19 +119,19 @@ function export()
 	$sheet->setCellValue('Q4','DR délivrance');
 	$sheet->setCellValue('R4','Paiement');
 	$sheet->setCellValue('A2', $title );
-	
+
 	$ligne= 5;
-	try 
+	try
 	{
-		if( $_POST['inscrit'] == 0) 
+		if( $_POST['inscrit'] == 0)
 		{
-			$sql_preinscrits ='SELECT * FROM preinscrits WHERE idformation = "'.$_POST['idformation'].'" AND estinscrit = "0";';
-			$reponse = $wpdb->get_results($sql_preinscrits );	
+			$sql_preinscrits ="SELECT * FROM {$wpdb->prefix}preinscrits WHERE idformation = '".$_POST['idformation']."'AND estinscrit = '0';";
+			$reponse = $wpdb->get_results($sql_preinscrits );
 		}
 		else
 		{
-			$sql_inscrits ='SELECT * FROM preinscrits WHERE idformation = "'.$_POST['idformation'].'" AND estinscrit = "1";';
-			$reponse = $wpdb->get_results($sql_inscrits );	
+			$sql_inscrits ="SELECT * FROM {$wpdb->prefix}preinscrits WHERE idformation = '".$_POST['idformation']."' AND estinscrit = '1';";
+			$reponse = $wpdb->get_results($sql_inscrits );
 		}
 
 		if(sizeof($reponse)>=1)
@@ -149,7 +149,7 @@ function export()
 							'color'=>array(
 								'rgb'=>'FF0000'))
 						));
-				}		 
+				}
 
 
 				$sheet->setCellValue('A'.$ligne,$preinscrits->id);
@@ -177,16 +177,16 @@ function export()
 	catch( Exception $e) {
 		die('Erreur : ' . $e->getMessage());
 	}
-	
-	
-	
+
+
+
 	$writer = new PHPExcel_Writer_Excel2007($workbook);
-	
-	
+
+
 	//prepare download
-	
-	
-	if( $_POST['inscrit'] == 0) 
+
+
+	if( $_POST['inscrit'] == 0)
 	{
 		$filename= $formation->discipline.'-'.$formation->date_debut.'_preinscrits.xls';
 	}
@@ -194,10 +194,10 @@ function export()
 	{
 		$filename= $formation->discipline.'-'.$formation->date_debut.'_inscrits.xls';
 	}
-		
+
 	$writer->save(__DIR__.'/'.$filename);
 	echo plugins_url($filename,__FILE__);
-	die();	
+	die();
 }
 
 
