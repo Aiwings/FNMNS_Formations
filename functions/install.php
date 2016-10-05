@@ -17,7 +17,7 @@
 	$sql_centres.= "`autre` text NOT NULL, ";
 	$sql_centres.= "PRIMARY KEY (`id`) );";
 
-	$sql_discipline.= "CREATE TABLE IF NOT EXISTS `SELECT discipline` (";
+	$sql_discipline.= "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}discipline` (";
 	$sql_discipline.= "`id` int(11) NOT NULL AUTO_INCREMENT, ";
 	$sql_discipline.= "`discipline` varchar(70) NOT NULL, ";
 	$sql_discipline.= "PRIMARY KEY (`id`) );";
