@@ -1,4 +1,4 @@
-<?phpfunction form_delete()
+<?php function form_delete()
 {
 	if(isset($_POST["id"]))
 	{
