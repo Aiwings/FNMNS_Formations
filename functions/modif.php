@@ -1,5 +1,4 @@
-<?php
-function modif_formation()
+<?php function modif_formation()
 {
 	if ( isset( $_POST["submit"]) && isset( $_POST["id"]) )
 	{

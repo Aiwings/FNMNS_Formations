@@ -1,7 +1,5 @@
 <?php
-
 	global $wpdb;
-
 
 	$sql_centres = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}centre_formation`(";
 	$sql_centres.= "`id` int(11) NOT NULL AUTO_INCREMENT, ";

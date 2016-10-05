@@ -1,6 +1,4 @@
-<?php
-
-function modif_centre()
+<?php function modif_centre()
 {
 
 

@@ -1,5 +1,4 @@
-<?php
-	function pieces()
+<?php function pieces()
 	{
 	setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
