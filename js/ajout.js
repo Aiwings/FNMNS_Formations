@@ -1,222 +1,171 @@
-
-
 jQuery(".postid-95").ready(function(){
-
-
 var discipline = document.getElementById("discipline");
 if(discipline){
 discipline.onchange = function(){
-	if (discipline.value == "add")
-	{
-		addPopup();
-	}
+if (discipline.value == "add")
+{
+addPopup();
 }
 }
-
+}
 var ajoutForm = document.getElementById("ajoutForm");
-
 if(ajoutForm) ajoutForm.onsubmit = startAdd;
-
-
-
 });
-
-
 var startAdd = function (e)
 {
-
-	e.preventDefault();
-
-
-	var formData = new FormData(this);
-	// Display the values
-	formData.append('name', 'ajout_formation');
-	formData.append('action', 'ajout_formation');
-
-	var date_debut = new Date(jQuery("#date_debut").val());
-	var date_fin = new Date(jQuery("#date_fin").val());
-
-	if( testDate(date_debut,date_fin))
-	{
-
-		 var ajaxRequest = jQuery.ajax(
-		 {
-				url : ajaxurl,
-				method :"POST",
-				data : formData,
-				processData: false,
-				contentType: false,
-
-				 }).done(addSuccess)
-				 .fail(addFail);
-	}
+e.preventDefault();
+var formData = new FormData(this);
+// Display the values
+formData.append('name', 'ajout_formation');
+formData.append('action', 'ajout_formation');
+var date_debut = new Date(jQuery("#date_debut").val());
+var date_fin = new Date(jQuery("#date_fin").val());
+if( testDate(date_debut,date_fin))
+{
+var ajaxRequest = jQuery.ajax(
+{
+url : ajaxurl,
+method :"POST",
+data : formData,
+processData: false,
+contentType: false,
+}).done(addSuccess)
+.fail(addFail);
 }
-
+}
 function testDate(date_debut,date_fin)
 {
-
-	var date = new Date();
-
-		if(date_debut.getTime() > date_fin.getTime())
-	{
-	     var html=' <span style="color :red; font-style:bold;"> ';
-		 html+="Erreur ! La date de d&eacute;but est sup&eacute;rieure &agrave; la date de fin";
-		 html+='</span>';
-		jQuery('#response').html(html);
-		return false;
-	}
-
-		if(date_debut.getTime() == date_fin.getTime())
-	{
-	     var html=' <span style="color :red; font-style:bold;"> ';
-		 html+="La formation doit &ecirc;tre sur plusieurs jours";
-		 html+='</span>';
-		jQuery('#response').html(html);
-		return false;
-	}
-
-	if(date_debut.getTime() <= date.getTime())
-	{
-		var html=' <span style="color :red; font-style:bold;"> ';
-	    html+="Veuillez saisir une date de d&eacute;but sup&eacute;rieure &agrave; la date d'aujourd'huis";
-		html+='</span>';
-		jQuery('#response').html(html);
-		return false;
-	}
-	return true;
+var date = new Date();
+if(date_debut.getTime() > date_fin.getTime())
+{
+var html=' <span style="color :red; font-style:bold;"> ';
+html+="Erreur ! La date de d&eacute;but est sup&eacute;rieure &agrave; la date de fin";
+html+='</span>';
+jQuery('#response').html(html);
+return false;
+}
+//if(date_debut.getTime() == date_fin.getTime())
+//{
+//var html=' <span style="color :red; font-style:bold;"> ';
+//html+="La formation doit &ecirc;tre sur plusieurs jours";
+//html+='</span>';
+//jQuery('#response').html(html);
+//return false;
+//}
+if(date_debut.getTime() <= date.getTime())
+{
+var html=' <span style="color :red; font-style:bold;"> ';
+html+="Veuillez saisir une date de d&eacute;but sup&eacute;rieure &agrave; la date d'aujourd'huis";
+html+='</span>';
+jQuery('#response').html(html);
+return false;
+}
+return true;
 }
 function addSuccess(data){
-
-	var objet =JSON.parse(data);
-	try {
-		jQuery('#response').html(objet.text);
-
-		if(objet.success == "true")
-		{
-			alert("La formation a bien été ajoutée");
-			location.reload();
-		}
-	}
-	catch(e){
-		console.log(data);
-         jQuery('#response').html(data);
-    }
-
+var objet =JSON.parse(data);
+try {
+jQuery('#response').html(objet.text);
+if(objet.success == "true")
+{
+alert("La formation a bien été ajoutée");
+location.reload();
 }
-
+}
+catch(e){
+console.log(data);
+jQuery('#response').html(data);
+}
+}
 function addFail(jqXHR, textStatus){
-		alert( "Request failed: " + textStatus );
+alert( "Request failed: " + textStatus );
 }
-
-
 function addPopup()
 {
-
-	var newDiscipline = prompt("Saisir la nouvelle discipline", "");
+var newDiscipline = prompt("Saisir la nouvelle discipline", "");
 if (newDiscipline) {
-	addDiscipline(newDiscipline)
+addDiscipline(newDiscipline)
 }
-
 }
-
 function addDiscipline(discipline)
 {
-	var data = {
-		action: 'ajout_discipline',
-		discipline :discipline
-		};
-	console.log(data);
-
-	var ajaxRequest = jQuery.ajax( {
-			url : ajaxurl,
-			method :"POST",
-			data : data,
-			datatype:"json"
-			 }).done(afterDisCreation)
-			 .fail(onDisFail);
-
+var data = {
+action: 'ajout_discipline',
+discipline :discipline
+};
+console.log(data);
+var ajaxRequest = jQuery.ajax( {
+url : ajaxurl,
+method :"POST",
+data : data,
+datatype:"json"
+}).done(afterDisCreation)
+.fail(onDisFail);
 }
 function afterDisCreation(data)
 {
-	console.log(data);
-	try
-	{
-		var objet = JSON.parse(data);
-		if (objet.success == "true")
-		{
-
-			var option= '<option selected value="'+objet.id+'" > '+objet.discipline+'</option>';
-			console.log(option);
-			jQuery("#discipline").html(option);
-		}
-	}
-	catch(e){
-		console.log(data);
-         jQuery('#response').html(data);
-    }
+console.log(data);
+try
+{
+var objet = JSON.parse(data);
+if (objet.success == "true")
+{
+var option= '<option selected value="'+objet.id+'" > '+objet.discipline+'</option>';
+console.log(option);
+jQuery("#discipline").html(option);
 }
-
+}
+catch(e){
+console.log(data);
+jQuery('#response').html(data);
+}
+}
 function onDisFail(jqXHR, textStatus){
-		alert( "Request failed: " + textStatus );
+alert( "Request failed: " + textStatus );
 }
-
 function formDelete(id)
 {
-	var data ={
-			action:'form_delete',
-			id:id
-		};
-
-		var ajaxRequest = jQuery.ajax( {
-			url :ajaxurl,
-			method :"POST",
-			data : data,
-			datatype:"json"
-			 }).done(onDelete)
-			 .fail(onDisFail);
-
+var data ={
+action:'form_delete',
+id:id
+};
+var ajaxRequest = jQuery.ajax( {
+url :ajaxurl,
+method :"POST",
+data : data,
+datatype:"json"
+}).done(onDelete)
+.fail(onDisFail);
 }
-
 function onDelete(data)
 {
-
-
-	try
-	{
-		var object = JSON.parse(data);
-
-		console.log(data);
-		if(object.success == "true")
-		{
-			jQuery("#".id).html("");
-
-				var html = '<span style="color:green;">';
-				html+= 'La formation a bien été supprimée';
-				html+='</span>';
-				alert("La formation a bien été supprimée");
-				location.reload();
-		}
-		else
-		{
-
-			var html = '<span style="color:red;">';
-				html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + object.status;
-				html+='</span>';
-
-		}
-
-		jQuery('#response').html(html);
-
-	}
-	catch(err)
-	{
-		console.log(data);
-		document.getElementById("response").innerHTML = data;
-	}
-
-
+try
+{
+var object = JSON.parse(data);
+console.log(data);
+if(object.success == "true")
+{
+jQuery("#".id).html("");
+var html = '<span style="color:green;">';
+html+= 'La formation a bien été supprimée';
+html+='</span>';
+alert("La formation a bien été supprimée");
+location.reload();
+}
+else
+{
+var html = '<span style="color:red;">';
+html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + object.status;
+html+='</span>';
+}
+jQuery('#response').html(html);
+}
+catch(err)
+{
+console.log(data);
+document.getElementById("response").innerHTML = data;
+}
 }
 function displaywindow(id)
 {
-
 }
