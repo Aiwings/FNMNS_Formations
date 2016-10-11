@@ -6,6 +6,7 @@ global $wpdb;
 $wpdb->show_errors();
 $result ="";
 $result_update="";
+$tab = array();
 
 if(isset($_POST["date_debut"]))
 {
@@ -156,7 +157,7 @@ if($result=="")
 if($result_update == 1)
 {
 $tab = array(
-"success" => "true",
+"success" => "true"
 );
 }
 else
@@ -174,6 +175,10 @@ $tab = array(
 }
  wp_send_json($tab);
 }
-die();
+else
+{
+	die();
+}
+
 }
 ?>

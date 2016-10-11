@@ -109,6 +109,7 @@ html+="Modifications prises en compte";
 html+='</span>';
 jQuery('#response').html(html);
 hide("modif");
+alert("Modifications prises en compte")
 location.reload();
 }
 else
