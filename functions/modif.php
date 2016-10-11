@@ -154,7 +154,7 @@ if(isset($_POST["discipline"]))
 }
 if($result=="")
 {
-if($result_update == 1)
+if($result_update!= false)
 {
 $tab = array(
 "success" => "true",
