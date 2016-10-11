@@ -84,6 +84,10 @@ private function displayRows($reponse_formations)
 {
 foreach ($reponse_formations as $row_formations)
 {
+
+	$fichier =  str_replace('\\', '', $formation->fichier);
+	$infos =  str_replace('\\', '', $formation->infos);
+
 ?>
 <tr id="<?php echo $row_formations->id;?>">
 <td  class="centre" id="centre_<?php echo $row_formations->id;?>">
@@ -97,8 +101,8 @@ foreach ($reponse_formations as $row_formations)
 </p>
 </td>
 <td style="overflow:hidden;width:100px;">
-<p title="<?php echo $row_formations->infos; ?>" onclick="modif(this)" style="width:120px;height:50px;overflow:hidden;" class="infos" id="infos_<?php echo $row_formations->id;?>">
-<?php echo $row_formations->infos; ?>
+<p title="<?php echo $infos; ?>" onclick="modif(this)" style="width:120px;height:50px;overflow:hidden;" class="infos" id="infos_<?php echo $row_formations->id;?>">
+<?php echo $infos; ?>
 </p>
 </td>
 <td >
@@ -128,8 +132,8 @@ foreach ($reponse_formations as $row_formations)
 </p>
 </td>
 <td style="overflow:hidden;width:100px;">
-<p title="<?php echo $row_formations->fichier; ?>" onclick="modif(this)" style="width:120px;height:50px;overflow:hidden;" class="fichier" id="fichier_<?php echo $row_formations->id;?>">
-<?php echo $row_formations->fichier; ?>
+<p title="<?php echo $fichier; ?>" onclick="modif(this)" style="width:120px;height:50px;overflow:hidden;" class="fichier" id="fichier_<?php echo $row_formations->id;?>">
+<?php echo $fichier; ?>
 </p>
 </td>
 <td>

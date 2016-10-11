@@ -74,17 +74,22 @@ die(1);
 }
 function send($formation,$user)
 {
+
+	$fichier =  str_replace('\\', '', $formation->fichier);
+
+
+
 //require_once( ABSPATH . 'wp-content/plugins/phpmailer/class.phpmailer.php');
 date_default_timezone_set('Europe/Paris');
 // echo "//Rentre dans la fonction";
 $page = get_page_by_title( 'Inscription' );
 $dir = ABSPATH;
 $url =  "http://".$_SERVER['HTTP_HOST'];
-$urlfichier = $url."/export/".$formation->discipline.'/'.$formation->fichier;
+$urlfichier = $url."/export/".$formation->discipline.'/'.$fichier;
 $urlupload = $url.'/?page_id='.$page->ID.'&userID='.$user->id.'&formationID='.$formation->id;
 $textMessage = "Nous vous remercions pour votre pré-inscription pour la formation ".$formation->discipline." du ".$formation->date_debut." au ".$formation->date_fin." à ".$formation->lieu ."<br />";
 $textMessage .= "Vous trouverez ici le lien vers le dossier de préinscription";
-$textMessage .= $dir."/export/".$formation->discipline.'/'.$formation->fichier;
+$textMessage .= $dir."/export/".$formation->discipline.'/'.$fichier;
 $textMessage .=" Vous pouvez nous transmettre les pièces requises à l'adresse";
 $textMessage .= $urlupload;
 $textMessage .= "A bientôt sur ".$url;

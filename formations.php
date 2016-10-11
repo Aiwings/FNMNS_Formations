@@ -5,7 +5,7 @@
 * GitHub Plugin URI: https://github.com/Aiwings/FNMNS_Formations
 * GitHub Plugin URI: Aiwings/FNMNS_Formations
 * GitHub Branch: master
-* Version: 0.1
+* Version: 0.16
 * Author: Guillaume Roux
 * Text Domain : FNMNS_Formations
 */
