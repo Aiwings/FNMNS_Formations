@@ -1,21 +1,21 @@
 
 jQuery("document").ready(function($){
-    
+
     $(".obligatoire").css("border-color","red");
      $(".obligatoire").css("border-style","solid");
       $(".obligatoire").css("border-width","1px");
 
   $('input[type="file"]').change(function() {
     var fieldset = this.parentNode.parentNode;
-      
-      if(this.files[0].name !="") 
+
+      if(this.files[0].name !="")
         $(fieldset).css("border-color","green");
         $(fieldset).append(this.files[0].name);
 
     });
     $("#poursuite").submit(onSubmit);
 
-    $('#date_naissance').change(function() 
+    $('#date_naissance').change(function()
     {
         var d = new Date(this.value);
         var age = getAge(d);
@@ -44,12 +44,12 @@ function onSubmit()
         contentType: false,
 
             }).done(onInscription)
-            .fail(onInscriptionFail); 
+            .fail(onInscriptionFail);
  return false;
 }
-function onInscription(data)
+function onInscription(objet)
 {
-    console.log(data);
+
     try{
         var objet = json.Parse(data);
 
@@ -59,11 +59,11 @@ function onInscription(data)
             jQuery("#result").html("Merci , vos informations ont bien été transmises !")
         }
         else {
-             jQuery("#result").html(object.status);
+             jQuery("#result").html(objet.status);
         }
     }
     catch(e){
-         jQuery("#result").html(data);
+         jQuery("#result").html(objet);
     }
 
 }
