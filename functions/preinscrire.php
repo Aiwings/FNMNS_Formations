@@ -40,7 +40,8 @@ $sql_formations.="WHERE {$wpdb->prefix}formation.id = ".$formationid.";";
 $reponse =  $wpdb->get_results($sql_formations );
 foreach ($reponse as $formation)
 {
-$sql_user= "SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE nom =". $nom." AND prenom =".$prenom." AND idformation =".$_POST['idformation'].";";
+
+$sql_user= $wpdb->prepare( "SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE `nom`=%s AND `prenom`=%s AND `idformation` = %d;",$nom,$prenom,$_POST['idformation']);
 $rep_user =  $wpdb->get_results($sql_user );
 foreach ($rep_user as $user)
 {
