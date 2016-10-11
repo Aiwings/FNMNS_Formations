@@ -85,8 +85,8 @@ private function displayRows($reponse_formations)
 foreach ($reponse_formations as $row_formations)
 {
 
-	$fichier =  str_replace('\\', '', $reponse_formations->fichier);
-	$infos =  str_replace('\\', '', $reponse_formations->infos);
+	$fichier =  str_replace('\\', '', $row_formations->fichier);
+	$infos =  str_replace('\\', '', $row_formations->infos);
 
 ?>
 <tr id="<?php echo $row_formations->id;?>">
