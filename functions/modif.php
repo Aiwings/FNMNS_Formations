@@ -177,7 +177,7 @@ $tab = array(
 }
 else
 {
-	die();
+	die("Pas de champ id");
 }
 
 }
