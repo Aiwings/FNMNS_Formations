@@ -14,6 +14,7 @@ $adresse1 = htmlspecialchars($_POST['adresse1']);
 $adresse2 = htmlspecialchars($_POST['adresse2']);
 $cp = htmlspecialchars($_POST['cp']);
 $ville = htmlspecialchars($_POST['ville']);
+$formationid =trim ( $_POST['idformation']);
 $formationid = htmlspecialchars($_POST['idformation']);
 $resultat = $wpdb->insert(
 "{$wpdb->prefix}preinscrits",
