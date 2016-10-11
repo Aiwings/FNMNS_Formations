@@ -130,7 +130,7 @@ $result = array(
 }catch( Exception $e) {
 $result = array(
 "success" => "false",
-"status" =>"$e->getMessage()");
+"status" =>$e->getMessage());
 
 }
 wp_send_json($result);

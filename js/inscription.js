@@ -48,6 +48,7 @@ html+='</span>';
 }
 else
 {
+console.log(object);
 var html = '<span style="color:red;">'
 html+= 'Désolé , il y a eu une erreur dans la procédure de préinscription <br />' + object.status;
 html+='</span>';
