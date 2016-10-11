@@ -122,7 +122,7 @@ hide("modif");
 catch(err)
 {
 console.log(objet);
-document.getElementById("response").innerHTML = data;
+document.getElementById("response").innerHTML = objet;
 }
 }
 function prepareTest(name,id,val){
