@@ -157,7 +157,8 @@ if($result=="")
 if($result_update == 1)
 {
 $tab = array(
-"success" => "true"
+"success" => "true",
+"status"=>"ok"
 );
 }
 else
@@ -173,7 +174,7 @@ $tab = array(
 "status"=>$result
 );
 }
- die(json_encode($tab);
+ die(json_encode($tab));
 }
 else
 {
