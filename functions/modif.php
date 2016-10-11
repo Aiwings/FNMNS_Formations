@@ -73,7 +73,7 @@ if(isset($_FILES["newFile"]) && isset ($_POST["dis"]) && isset ($_POST["debut"])
 		}
 	}
 	catch( Exception $e) {
-	$result = $e->getMessage();
+		$result = $e->getMessage();
 	}
 }
 
@@ -173,7 +173,7 @@ $tab = array(
 "status"=>$result
 );
 }
- wp_send_json($tab);
+ echo json_encode($tab);
 }
 else
 {
