@@ -29,24 +29,25 @@ $reponse = $wpdb->get_results($sql_formations );
 		}
 	}
 
-	$result = 0;
+	$result = false;
 
 	try
 	{
 		if(file_exists($target_file))
 		{
-			$result =unlink($target_file);
+			$result = unlink($target_file);
 		}
-		else(
+		else
+		{
 			$result = true;
-		)
+		}
 
 	}
 	catch( Exception $e)
 	{
-		return false ;
+				$result = false;
 	}
-		$result = false;
+	return $result ;
 
 }
 ?>
