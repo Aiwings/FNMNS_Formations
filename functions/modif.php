@@ -173,7 +173,7 @@ $tab = array(
 "status"=>$result
 );
 }
- echo json_encode($tab);
+ die(json_encode($tab);
 }
 else
 {
