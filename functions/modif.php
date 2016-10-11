@@ -174,7 +174,7 @@ $tab = array(
 "status"=>$result
 );
 }
- die(json_encode($tab));
+wp_send_json($tab);
 }
 else
 {
