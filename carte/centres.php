@@ -10,8 +10,11 @@ foreach ($reponse_select as $row)
 {
 $centres[] = $row;
 }
-echo json_encode($centres);
+wp_send_json($centres);
 }
-die();
+else{
+	die();
+}
+
 }
 ?>

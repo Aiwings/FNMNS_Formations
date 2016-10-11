@@ -42,8 +42,10 @@ $result = array(
 "sql" =>$wpdb->print_error()
 );
 }
-echo json_encode($result) ;
+	wp_send_json($result);
 }
+else{
 die();
+}
 }
 ?>

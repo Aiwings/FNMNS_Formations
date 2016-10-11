@@ -71,11 +71,11 @@ datatype:"json"
 }
 }
 }
-function FillInputs(data)
+function FillInputs(object)
 {
 try{
-var object = JSON.parse(data);
-console.log(object);
+
+
 jQuery("#nom-centre").val(object.centre);
 jQuery("#adresse-centre").val(object.adresse);
 jQuery("#cp-centre").val(object.cp);
@@ -96,7 +96,7 @@ editor.setContent( content, {format : 'html'} );
 }
 catch(e){
 console.log(e.message);
-console.log(data);
+console.log(object);
 }
 }
 function sendChanges(add)
@@ -124,11 +124,11 @@ contentType: false,
 .fail(onCreationFail);
 }
 }
-function onCreationSuccess(data)
+function onCreationSuccess(objet)
 {
 try
 {
-var objet = JSON.parse(data);
+
 if(objet.success == "true")
 {
 jQuery("#title").html("Changements pris en compte ");
@@ -139,7 +139,7 @@ location.reload();
 }
 catch(err)
 {
-console.log(data);
+console.log(objet);
 console.log(err.message);
 }
 }

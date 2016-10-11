@@ -3,6 +3,8 @@
 if(isset($_POST["id"]))
 {
 global $wpdb;
+$wpdb->show_errors();
+$result = array();
 try
 {
 if(delfile($_POST["id"],0) == true)
@@ -29,14 +31,17 @@ $result = array(
 "status" => "Impossible de supprimer le fichier"
 );
 }
-die( json_encode($result));
+
 }
 catch( Exception $e) {
 $result = array(
 "success" => "false",
 "status" =>"$e->getMessage()");
-die( json_encode($result));
 }
+wp_send_json($result);
 }
+else
+{
+	die();
 }
 ?>

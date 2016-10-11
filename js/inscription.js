@@ -33,11 +33,11 @@ contentType: false,
 }).done(onPreinscription)
 .fail(addFail);
 };
-function onPreinscription(data)
+function onPreinscription(object)
 {
 try
 {
-var object = JSON.parse(data);
+
 if(object.success == "true")
 {
 var html = '<span style="color:green;">'
@@ -57,7 +57,7 @@ hide("preinscription");
 }
 catch(err)
 {
-console.log(data);
+console.log(object);
 console.log(err.message);
 hide("preinscription");
 document.getElementById("response").innerHTML = data;
@@ -113,10 +113,10 @@ contentType: false,
 }).done(onModifPre)
 .fail(onModifPreFail);
 };
-function onModifPre(data){
+function onModifPre(object){
 try
 {
-var object = JSON.parse(data);
+
 if(object.success == "true")
 {
 location.reload();
@@ -124,7 +124,7 @@ location.reload();
 }
 catch(err)
 {
-console.log(data);
+console.log(object);
 console.log(err.message);
 hide("preinscription");
 document.getElementById("response").innerHTML = data;

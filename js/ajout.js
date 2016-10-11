@@ -63,10 +63,10 @@ return false;
 return true;
 }
 function addSuccess(data){
-var objet =JSON.parse(data);
+
 try {
-jQuery('#response').html(objet.text);
-if(objet.success == "true")
+jQuery('#response').html(data.text);
+if(data.success == "true")
 {
 alert("La formation a bien été ajoutée");
 location.reload();
@@ -93,7 +93,7 @@ var data = {
 action: 'ajout_discipline',
 discipline :discipline
 };
-console.log(data);
+
 var ajaxRequest = jQuery.ajax( {
 url : ajaxurl,
 method :"POST",
@@ -104,13 +104,13 @@ datatype:"json"
 }
 function afterDisCreation(data)
 {
-console.log(data);
+
 try
 {
-var objet = JSON.parse(data);
-if (objet.success == "true")
+
+if (data.success == "true")
 {
-var option= '<option selected value="'+objet.id+'" > '+objet.discipline+'</option>';
+var option= '<option selected value="'+data.id+'" > '+objet.discipline+'</option>';
 console.log(option);
 jQuery("#discipline").html(option);
 }
@@ -141,9 +141,9 @@ function onDelete(data)
 {
 try
 {
-var object = JSON.parse(data);
-console.log(data);
-if(object.success == "true")
+
+
+if(data.success == "true")
 {
 jQuery("#".id).html("");
 var html = '<span style="color:green;">';
@@ -155,7 +155,7 @@ location.reload();
 else
 {
 var html = '<span style="color:red;">';
-html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + object.status;
+html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + data.status;
 html+='</span>';
 }
 jQuery('#response').html(html);

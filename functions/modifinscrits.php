@@ -58,6 +58,6 @@ $result= array(
 "status"=>"Pas de id"
 );
 }
-die(json_encode($result));
+wp_send_json($result);
 }
 ?>

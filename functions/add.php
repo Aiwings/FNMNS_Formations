@@ -60,6 +60,6 @@ $tab = array(
 "text"=>$textresult,
 "success"=>$success
 );
-die( json_encode($tab ));
+wp_send_json($tab );
 }
 ?>

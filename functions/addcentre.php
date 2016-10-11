@@ -57,8 +57,8 @@ $insert['image'] = $imageResult["name"];
 }
 else
 {
-echo json_encode($image->getResult());
-exit;
+wp_send_json($image->getResult());
+
 }
 }
 $resultat = $wpdb->insert("{$wpdb->prefix}centre_formation", $insert);
@@ -74,8 +74,10 @@ $result = array(
 "status" =>$wpdb->print_error()
 );
 }
-echo json_encode($result) ;
+	wp_send_json($result);
 }
-die();
+else
+{
+	die();
 }
 ?>

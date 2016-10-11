@@ -120,18 +120,19 @@ $result = array(
 "success" => "true",
 "status" =>"Message Envoyé",
 "url"=>$urlfichier);
-die( json_encode($result));
+
 } else {
 $result = array(
 "success" => "false",
 "status" =>$mail->ErrorInfo);
-die(json_encode($result));
+
 }
 }catch( Exception $e) {
 $result = array(
 "success" => "false",
 "status" =>"$e->getMessage()");
-die(json_encode($result));
+
 }
+wp_send_json($result);
 }
 ?>

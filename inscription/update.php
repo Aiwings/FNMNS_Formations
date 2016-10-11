@@ -104,7 +104,7 @@ $result= array(
 "status"=>$wpdb->print_error()
 );
 }
-die( json_encode($result));
+wp_send_json($result);
 }
 function errors($file)
 {
@@ -113,6 +113,6 @@ $result = array (
 "status" =>$file->getResult(),
 "file" => $file->getName()
 );
-die(json_encode($result));
+wp_send_json($result);
 }
 ?>

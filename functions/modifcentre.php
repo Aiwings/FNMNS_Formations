@@ -50,8 +50,8 @@ $sql_update.= ' WHERE `id`="'.$_POST['id'].'";';
 }
 else
 {
-echo json_encode($image->getResult());
-exit;
+wp_send_json($image->getResult());
+
 }
 }
 $resultat = $wpdb->query($sql_update);
@@ -66,9 +66,12 @@ $result = array(
 "success" => "false",
 "sql" =>$sql_update);
 }
-die( json_encode($result));
+wp_send_json($result);
 }
 }
-die();
+else{
+	die();
+}
+
 }
 ?>

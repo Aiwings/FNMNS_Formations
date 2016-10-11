@@ -24,6 +24,6 @@ $element = array(
 }
 }
 }
-die(json_encode($element));
+wp_send_json($element);
 }
 ?>
