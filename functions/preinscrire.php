@@ -32,9 +32,9 @@ array(
 if($resultat != false )
 {
 $sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
-$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON JOIN {$wpdb->prefix}centre_formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}centre_formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
 $sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
-$sql_formations.="WHERE {$wpdb->prefix}formation.id = '".$_POST['idformation']."';";
+$sql_formations.="WHERE {$wpdb->prefix}formation.id = '".$formationid."';";
 $reponse =  $wpdb->get_results($sql_formations );
 foreach ($reponse as $formation)
 {
