@@ -30,6 +30,7 @@ array(
 'email' => $email,
 'idformation' => $formationid,
 ));
+
 if($resultat != false )
 {
 $sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
@@ -39,7 +40,7 @@ $sql_formations.="WHERE {$wpdb->prefix}formation.id = ".$formationid.";";
 $reponse =  $wpdb->get_results($sql_formations );
 foreach ($reponse as $formation)
 {
-$sql_user= "SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE nom ='". $nom."' AND prenom =".$prenom."' AND idformation ='".$_POST['idformation']."';";
+$sql_user= "SELECT * FROM `{$wpdb->prefix}preinscrits` WHERE nom =". $nom." AND prenom =".$prenom." AND idformation =".$_POST['idformation'].";";
 $rep_user =  $wpdb->get_results($sql_user );
 foreach ($rep_user as $user)
 {
