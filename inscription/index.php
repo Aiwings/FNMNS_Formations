@@ -151,7 +151,7 @@ $sql_select ="SELECT * FROM {$wpdb->prefix}preinscrits WHERE id = ".$_GET['userI
 break;
 case "formationID" :
 $sql_formations = "SELECT {$wpdb->prefix}formation.*, {$wpdb->prefix}centre_formation.centre, {$wpdb->prefix}discipline.discipline FROM `{$wpdb->prefix}formation` ";
-$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON JOIN {$wpdb->prefix}centre_formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
+$sql_formations.= "LEFT JOIN {$wpdb->prefix}discipline ON {$wpdb->prefix}formation.idDiscipline =  {$wpdb->prefix}discipline.id ";
 $sql_formations.= "LEFT JOIN {$wpdb->prefix}centre_formation ON {$wpdb->prefix}formation.idCentre =  {$wpdb->prefix}centre_formation.id"." ";
 $sql_select.="WHERE {$wpdb->prefix}formation.id = ".$_GET['formationID'].";";
 break ;
