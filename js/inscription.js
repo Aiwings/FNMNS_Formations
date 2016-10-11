@@ -20,6 +20,7 @@ var preinscription = document.getElementById("preinscription");
 preinscription.onsubmit = preinscrire;
 }
 var preinscrire = function(e){
+	console.log(jQuery("#date_debut_"+id).text());
 e.preventDefault();
 var form = document.getElementById("preinscription_form");
 var formData = new FormData(form);
