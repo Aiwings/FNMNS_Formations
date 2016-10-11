@@ -99,7 +99,8 @@ contentType: false,
 .fail(addFail);
 }
 function modifSuccess(data){
-console.log(data);
+try
+{
 var objet = JSON.parse(data)
 if(objet.success == "true")
 {
@@ -115,6 +116,12 @@ else
 var html= objet.status;
 jQuery('#response').html(html);
 hide("modif");
+}
+}
+catch(err)
+{
+console.log(data);
+document.getElementById("response").innerHTML = data;
 }
 }
 function prepareTest(name,id,val){
