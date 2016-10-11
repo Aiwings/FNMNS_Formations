@@ -98,10 +98,10 @@ contentType: false,
 }).done(modifSuccess)
 .fail(addFail);
 }
-function modifSuccess(data){
+function modifSuccess(objet){
 try
 {
-var objet = JSON.parse(data)
+
 if(objet.success == "true")
 {
 var html=' <span style="color :green; font-style:bold;"> ';
@@ -120,7 +120,7 @@ hide("modif");
 }
 catch(err)
 {
-console.log(data);
+console.log(objet);
 document.getElementById("response").innerHTML = data;
 }
 }
