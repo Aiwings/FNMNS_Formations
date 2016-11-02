@@ -1114,7 +1114,7 @@ $objWriter->save('php://output');
 
 **Caution:**
 
-Make sure not to include any echo statements or output any other contents than the Excel file. There should be no whitespace before the opening <?php tag and at most one line break after the closing ?> tag (which can also be omitted to avoid problems). Make sure that your script is saved without a BOM (Byte-order mark) because this counts as echoing output. The same things apply to all included files.  
+Make sure not to include any echo statements or output any other contents than the Excel file. There should be no whitespace before the opening<?php tag and at most one line break after the closing ?>tag (which can also be omitted to avoid problems). Make sure that your script is saved without a BOM (Byte-order mark) because this counts as echoing output. The same things apply to all included files.  
 Failing to follow the above guidelines may result in corrupt Excel files arriving at the client browser, and/or that headers cannot be set by PHP (resulting in warning messages).
 
 ### Setting the default column width

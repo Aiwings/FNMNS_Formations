@@ -32,7 +32,7 @@ $poly[] = array(
 $polys[] = $poly;
 }
 }
-echo json_encode($polys);
-die();
+ wp_send_json($polys);
+
 }
 ?>

@@ -129,7 +129,7 @@ function onCreationSuccess(objet)
 try
 {
 
-if(objet.success == "true")
+if(objet.success == true)
 {
 jQuery("#title").html("Changements pris en compte ");
 jQuery("#title").css("color","green");
@@ -140,7 +140,7 @@ location.reload();
 catch(err)
 {
 console.log(objet);
-console.log(err.message);
+alert(err.message);
 }
 }
 function onCreationFail(jqXHR, textStatus){

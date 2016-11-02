@@ -3,7 +3,7 @@
 if(isset($_POST["id"]))
 {
 global $wpdb;
-$wpdb->show_errors();
+
 $result = array();
 try
 {
@@ -12,33 +12,23 @@ if(delfile($_POST["id"],0) == true)
 $resultat = $wpdb->delete("{$wpdb->prefix}formation", array( 'id' => $_POST["id"] ) );
 if($resultat ==1 )
 {
-$result = array(
-"success" => "true"
-);
+wp_send_json_success();
 }
 else
 {
-$result = array(
-"success" => "false",
-"status" => ""
-);
+	throw new Exception($wpdb->print_error());
 }
 }
 else
 {
-$result = array(
-"success" => "false",
-"status" => "Impossible de supprimer le fichier"
-);
+	throw new Exception("Impossible de supprimer le fichier");
 }
 
 }
 catch( Exception $e) {
-$result = array(
-"success" => "false",
-"status" =>"$e->getMessage()");
+  	wp_send_json_error( array( "status"=>$e->getMessage()));
 }
-wp_send_json($result);
+
 }
 else
 {

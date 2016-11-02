@@ -14,7 +14,8 @@ class FNMNS_Formations
 public function __construct()
 {
 register_activation_hook(__FILE__, array('FNMNS_Formations', 'install'));
-register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
+//register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
+add_action('activated_plugin',array('FNMNS_Formations','save_error'));
 $this->include_views();
 $this->include_functions();
 $this->include_carte();
@@ -30,6 +31,7 @@ add_filter('admin_head',array($this,'ShowTinyMCE'));
 define("FORMATION_ROOT",plugin_dir_path( __FILE__ ));
 define("FORMATION_URL",plugins_url("/",__FILE__ ));
 }
+
 public static function install()
 {
 include_once plugin_dir_path( __FILE__ ).'/functions/install.php';
@@ -41,6 +43,9 @@ $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}centre_formation;");
 $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}discipline;");
 $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}formation;");
 $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}preinscrits;");
+}
+public static function save_error(){
+    update_option('plugin_error',  ob_get_contents());
 }
 private function include_views()
 {

@@ -32,7 +32,7 @@ echo  " a la formation ".$formation->discipline." ". strftime("du %A %d %B %Y" ,
 ?>
 </h2>
 <div style="padding-left:5%;padding-bottom:20px;" id ="export" class="row">
-<span style="display:none" id="idformation"><?php echo $_POST['idformation'] ?> </span>
+<span style="display:none" id="idformation"><?php echo $_POST['idformation'] ?></span>
 <a href="#" onclick="exporter(<?php echo $_POST['idformation'] ?>,<?php echo $_POST['inscrit'] ?>);"  title="Exporter au format Excel" >
 Exporter au format Excel
 </a>
@@ -42,7 +42,7 @@ Afficher les pièces requises
 </div>
 <div id="results">
 <div class="row" >
-<div class="col-md-<?php echo 1+ $_POST["inscrit"]; ?> ">
+<div class="col-md-<?php echo 1+ $_POST["inscrit"]; ?>">
 Nom
 </div>
 <div class="col-md-1">
@@ -75,7 +75,7 @@ foreach ($reponse_inscrits as $preinscrit)
 ?>
 <div class="row" >
 <form name="modif_pre">
-<div class="col-md-<?php echo 1+ $_POST["inscrit"]; ?> ">
+<div class="col-md-<?php echo 1+ $_POST["inscrit"]; ?>">
 <input type="text"  name="nom" value="<?php echo $preinscrit->nom; ?>"  />
 </div>
 <div class="col-md-1">

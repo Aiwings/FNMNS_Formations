@@ -40,19 +40,19 @@ function onPreinscription(object)
 try
 {
 
-if(object.success == "true")
+if(object.success == true)
 {
 var html = '<span style="color:green;">'
 html+= 'Merci , Votre pré-inscription a bien été prise en compte <br />';
 html+= 'Vous pouvez accèder au dossier de préinscription en cliquant ';
-html+= '<a  href="'+object.url+'" target="_blank" title="dossier de préinscription ">ici</a>';
+html+= '<a  href="'+object.data.url+'" target="_blank" title="dossier de préinscription ">ici</a>';
 html+='</span>';
 }
 else
 {
 console.log(object);
 var html = '<span style="color:red;">'
-html+= 'Désolé , il y a eu une erreur dans la procédure de préinscription <br />' + object.status;
+html+= 'Désolé , il y a eu une erreur dans la procédure de préinscription <br />' + object.data.status;
 html+='</span>';
 }
 jQuery("#response").html(html);
@@ -120,7 +120,7 @@ function onModifPre(object){
 try
 {
 
-if(object.success == "true")
+if(object.success == true)
 {
 location.reload();
 }
@@ -158,7 +158,7 @@ function onInscription(data)
 try
 {
 //	var object = JSON.parse(data);
-if(data.success == "true")
+if(data.success == true)
 {
 location.reload();
 }
@@ -215,4 +215,5 @@ location.href=url;
 }
 function onExportFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );
+console.log(jqXHR);
 }

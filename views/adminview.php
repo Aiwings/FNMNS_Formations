@@ -90,7 +90,7 @@ foreach ($reponse_formations as $row_formations)
 
 ?>
 <tr id="<?php echo $row_formations->id;?>">
-<td  class="centre" id="centre_<?php echo $row_formations-git >id;?>">
+<td  class="centre" id="centre_<?php echo $row_formations->id;?>">
 <a onclick="displaywindow(<?php echo $row_formations->idCentre ;?>)">
 <?php echo $row_formations->centre; ?>
 </a>
@@ -152,7 +152,9 @@ private function tabEnd()
 }
 private function addForm()
 {
+	echo get_option('plugin_error');
 ?>
+
 <h2>Ajouter une formation</h2>
 <form name="ajoutForm"enctype="multipart/form-data" method="POST" id="ajoutForm" class="row">
 <div class="col-md-3">

@@ -21,7 +21,7 @@ if(searchcentres()!="")
 <form id="selectCentres">
 <input id="create" type="radio" name="select" value="create" /> Ajouter un nouveau centre<br />
 <input id="select" type="radio" name="select" value="select" checked /> Modifier un centre<br />
-<?php echo searchcentres(); ?> <br />
+<?php echo searchcentres(); ?><br />
 </form>
 </div>
 <h2 id="title">Selectionnez un centre</h2>

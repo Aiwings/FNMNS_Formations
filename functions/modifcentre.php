@@ -50,28 +50,24 @@ $sql_update.= ' WHERE `id`="'.$_POST['id'].'";';
 }
 else
 {
-wp_send_json($image->getResult());
+wp_send_json_error(array("status"=>$image->getResult()));
 
 }
 }
 $resultat = $wpdb->query($sql_update);
 if($resultat ==1 )
 {
-$result = array(
-"success" => "true");
+	wp_send_json_success();
 }
 else
 {
-$result = array(
-"success" => "false",
-"sql" =>$sql_update);
-}
-wp_send_json($result);
+	wp_send_json_error(array("status"=>$sql_update));
 }
 }
 else{
 	die();
 }
 
+}
 }
 ?>

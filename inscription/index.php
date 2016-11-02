@@ -16,7 +16,7 @@ $user = select("userID");
 <h1>
 Formulaire d'inscription <br />
 <small><?php echo $user->nom ." ". $user->prenom ; ?><br />
-pour la formation du <?php echo strftime("%d/%m/%y",strtotime($formation->date_debut)) ." au ". strftime("%d/%m/%y",strtotime($formation->date_fin)) ; ?>
+pour la formation du<?php echo strftime("%d/%m/%y",strtotime($formation->date_debut)) ." au ". strftime("%d/%m/%y",strtotime($formation->date_fin)) ; ?>
 </small>
 </h1>
 <p id="result"></p>

@@ -33,7 +33,7 @@ else
 $autre ="";
 }
 global $wpdb;
-$wpdb->show_errors();
+
 $insert	= array
 (
 'centre' => $centre,
@@ -46,35 +46,36 @@ $insert	= array
 'gerant' =>$gerant,
 'autre' =>$autre,
 );
-if($_FILES['image_centre']["name"]!="")
-{
-$image = new Fichier($_FILES['image_centre'],"image");
-$imageResult = $image->fileUpload("centres",'_'.$centre,"");
-$imagename=$image->getName();
-if($imageResult["success"] == "true")
-{
-$insert['image'] = $imageResult["name"];
-}
-else
-{
-wp_send_json($image->getResult());
 
+try{
+	if($_FILES['image_centre']["name"]!="")
+	{
+		$image = new Fichier($_FILES['image_centre'],"image");
+		$imageResult = $image->fileUpload("centres",'_'.$centre,"");
+		$imagename=$image->getName();
+		if($imageResult["success"] == "true")
+		{
+		$insert['image'] = $imageResult["name"];
+		}
+		else
+		{
+			throw new Exception($image->getResult());
+		}
+	}
+	$resultat = $wpdb->insert("{$wpdb->prefix}centre_formation", $insert);
+	if($resultat == 1)
+	{
+		wp_send_json_success();
+	}
+	else
+	{
+		throw new Exception($wpdb->print_error());
+	}
 }
-}
-$resultat = $wpdb->insert("{$wpdb->prefix}centre_formation", $insert);
-if($resultat == 1)
-{
-$result = array(
-"success" => "true");
-}
-else
-{
-$result = array(
-"success" => "false",
-"status" =>$wpdb->print_error()
-);
-}
-	wp_send_json($result);
+catch( Exception $e)
+ 	{
+        wp_send_json_error( array( "status"=>$e->getMessage()));
+ 	}
 }
 else
 {

@@ -95,14 +95,15 @@ method :"POST",
 data : formData,
 processData: false,
 contentType: false,
-}).done(modifSuccess)
+}).success(modifSuccess)
 .fail(addFail);
 }
 function modifSuccess(objet){
+    console.log(objet);
 try
 {
 
-if(objet.success == "true")
+if(objet.success == true)
 {
 var html=' <span style="color :green; font-style:bold;"> ';
 html+="Modifications prises en compte";
@@ -114,7 +115,7 @@ location.reload();
 }
 else
 {
-var html= objet.status;
+var html= objet.data.status;
 jQuery('#response').html(html);
 hide("modif");
 }

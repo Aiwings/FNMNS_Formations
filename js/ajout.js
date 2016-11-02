@@ -29,7 +29,7 @@ method :"POST",
 data : formData,
 processData: false,
 contentType: false,
-}).done(addSuccess)
+}).success(addSuccess)
 .fail(addFail);
 }
 }
@@ -62,11 +62,11 @@ return false;
 }
 return true;
 }
-function addSuccess(data){
+function addSuccess(objet){
 
 try {
-jQuery('#response').html(data.text);
-if(data.success == "true")
+jQuery('#response').html(objet.data.text);
+if(objet.success == true)
 {
 alert("La formation a bien été ajoutée");
 location.reload();
@@ -79,6 +79,7 @@ jQuery('#response').html(data);
 }
 function addFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );
+console.log(jqXHR);
 }
 function addPopup()
 {
@@ -99,29 +100,28 @@ url : ajaxurl,
 method :"POST",
 data : data,
 datatype:"json"
-}).done(afterDisCreation)
+}).success(afterDisCreation)
 .fail(onDisFail);
 }
-function afterDisCreation(data)
+function afterDisCreation(objet)
 {
-
 try
 {
-
-if (data.success == "true")
+if (objet.success == true)
 {
-var option= '<option selected value="'+data.id+'" > '+objet.discipline+'</option>';
+var option= '<option selected value="'+objet.data.id+'" > '+objet.data.discipline+'</option>';
 console.log(option);
 jQuery("#discipline").html(option);
 }
 }
 catch(e){
-console.log(data);
-jQuery('#response').html(data);
+console.log(objet);
+jQuery('#response').html(objet);
 }
 }
 function onDisFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );
+console.log(jqXHR);
 }
 function formDelete(id)
 {
@@ -134,16 +134,14 @@ url :ajaxurl,
 method :"POST",
 data : data,
 datatype:"json"
-}).done(onDelete)
+}).success(onDelete)
 .fail(onDisFail);
 }
-function onDelete(data)
+function onDelete(objet)
 {
 try
 {
-
-
-if(data.success == "true")
+if(objet.success == true)
 {
 jQuery("#".id).html("");
 var html = '<span style="color:green;">';
@@ -155,15 +153,15 @@ location.reload();
 else
 {
 var html = '<span style="color:red;">';
-html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + data.status;
+html+= 'Désolé , il y a eu une erreur lors de la suppression <br />' + objet.data.status;
 html+='</span>';
 }
 jQuery('#response').html(html);
 }
 catch(err)
 {
-console.log(data);
-document.getElementById("response").innerHTML = data;
+console.log(objet);
+document.getElementById("response").innerHTML = objet;
 }
 }
 function displaywindow(id)

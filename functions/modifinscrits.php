@@ -30,34 +30,21 @@ array( '%d' )
 );
 if($reponse_modif  ==1 )
 {
-$result= array(
-"success"=>"true"
-);
+    wp_send_json_success();
 }
 else
 {
-$wpdb->show_errors();
-$result=array(
-"success"=> "false",
-"status" => $wpdb->print_error()
-);
+  throw new Exception( $wpdb->print_error());
 }
 }
 catch( Exception $e) {
-$result= array(
-"success"=>"false",
-"status"=>$e->getMessage()
-);
-die('Erreur : ' . $e->getMessage());
+   	wp_send_json_error(array("status"=>'Exception reçue : '.  $e->getMessage(). "\n") );
 }
 }
 else
 {
-$result= array(
-"success"=>"false",
-"status"=>"Pas de id"
-);
+  	wp_send_json_error(array("status"=>'Pas de id'));
 }
-wp_send_json($result);
+
 }
 ?>

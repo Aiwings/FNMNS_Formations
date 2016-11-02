@@ -156,25 +156,17 @@ if($result=="")
 {
 if($result_update!= false)
 {
-$tab = array(
-"success" => "true",
-"status"=>"ok"
-);
+	wp_send_json_success(array( "status"=>"ok"));
+
 }
 else
 {
-$tab = array(
-"success" => "false",
-"status"=> $wpdb->print_error()
-);
+	wp_send_json_error( array( "status"=> $wpdb->print_error()));
 }
 }else{
-$tab = array(
-"success" => "false",
-"status"=>$result
-);
+	wp_send_json_error( array( "status"=>$result));
 }
-wp_send_json($tab);
+
 }
 else
 {

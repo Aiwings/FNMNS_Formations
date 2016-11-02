@@ -40,7 +40,7 @@ foreach ($reponse_select as $row)
 <td colspan="2"><span style="color: rgb(0,0,0)">
 <b><?php echo $row->centre; ?></b><br />
 <?php echo $row->adresse; ?><br />
-<?php if(isset ($row->code_postal)) echo $row->code_postal; ?> <span style="text-transform:uppercase;"><?php echo $row->ville; ?></span><br />
+<?php if(isset ($row->code_postal)) echo $row->code_postal; ?><span style="text-transform:uppercase;"><?php echo $row->ville; ?></span><br />
 <?php if(isset ($row->site)) echo $row->site; ?>
 <?php if(isset ($row->autre)) {
 $autre = str_replace ("&lt;","<",$row->autre);
