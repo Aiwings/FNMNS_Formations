@@ -110,7 +110,6 @@ function send($formation,$user)
 
 	$headers = array(
 		'Content-Type: text/html; charset=UTF-8',
-		'From:'.get_bloginfo('name').' <contact@'.$_SERVER['HTTP_HOST'].'>;',
 		'BCC: Laurent Tixier <l.tixier@proximitywebpro.fr>;',
 		'Reply-To:'.get_bloginfo('name').' <contact@'.$_SERVER['HTTP_HOST'].'>;'
 	);

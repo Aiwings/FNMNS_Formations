@@ -14,7 +14,7 @@ class FNMNS_Formations
 public function __construct()
 {
 register_activation_hook(__FILE__, array('FNMNS_Formations', 'install'));
-//register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
+register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
 add_action('activated_plugin',array('FNMNS_Formations','save_error'));
 $this->include_views();
 $this->include_functions();
@@ -168,7 +168,7 @@ public function map_scripts()
 global $wpdb;
 $sql_map = 'SELECT ID FROM `wp_posts` WHERE `post_title` = "Centres de Formation" AND post_status="publish" ;';
 $mapID = $wpdb->get_var($sql_map);
-if(is_single($mapID) && !current_user_can( 'manage_options' )){
+if((is_single($mapID) || is_page($mapID))&& !current_user_can( 'manage_options' )){
 wp_enqueue_script( 'GoogleMap','https://maps.googleapis.com/maps/api/js?key=AIzaSyA0goj_KyUSm3Dvl4zAz-S1ebCYOvK8lGY' );
 wp_enqueue_script('jquery');
 wp_enqueue_script( 'carte_scripts',plugins_url("carte/js/scripts.js",__FILE__), array( 'jquery') , '1.0' );

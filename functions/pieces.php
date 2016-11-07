@@ -89,7 +89,7 @@ if(sizeof($docs) != 0)
 foreach($docs as $doc)
 {
 ?>
-<a href="<?php echo $urldocs.$doc; ?>" target="_blank"> document<?php echo $i;$i++;?> </a> ,
+<a href="<?php echo $urldocs.$doc; ?>" target="_blank"> document<?php echo $i;$i++;?></a> ,
 <?php
 }
 }
