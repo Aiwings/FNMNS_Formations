@@ -34,7 +34,7 @@ pour la formation du<?php echo strftime("%d/%m/%y",strtotime($formation->date_de
 </fieldset>
 <fieldset class="form-group col-md-4 ">
 <label for="paiement">Moyen de Paiement *</label>
-<select name="paiement" id="paiement" required style="margin:0;">
+<select name="paiement" id="paiement" required style="margin:0;height: auto;">
 <option selected value=""></option>
 <option value="Individuel">Individuel</option>
 <option value="Pris en charge">Pris en charge</option>
