@@ -49,7 +49,7 @@
 						{
 							$data = array(
 								"status" =>"Message Envoyé",
-								"url"=>$urlfichier
+								"url"=> $formation->fichier
 							);
 							wp_send_json_success( $data);
 							

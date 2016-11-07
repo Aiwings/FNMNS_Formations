@@ -41,7 +41,7 @@ echo $inscrit->nom .' '.$inscrit->prenom
 ?>
 </div>
 <div class="col-md-2">
-<?php if(isset($inscrit->carte)) {
+<?php if($inscrit->carte !="") {
 echo '<a href="'.$urldocs.$inscrit->carte.'" target="_blank">Carte d\'identité</a>';}
 else{
 echo 'Carte non présente';
@@ -49,7 +49,7 @@ echo 'Carte non présente';
 ?>
 </div>
 <div class="col-md-2">
-<?php if (isset($inscrit->certif)){
+<?php if ($inscrit->certif!=""){
 echo '<a href="'.$urldocs.$inscrit->certif.'"target="_blank">Certificat médical</a>';}
 else{
 echo 'Certificat non présent';
@@ -57,7 +57,7 @@ echo 'Certificat non présent';
 ?>
 </div>
 <div class="col-md-2">
-<?php if (isset($inscrit->assurance)){
+<?php if ($inscrit->assurance!=""){
 echo '<a href="'.$urldocs.$inscrit->assurance.'"target="_blank">Contrat d\'assurance</a>';}
 else{
 echo 'Assurance non présente';
@@ -65,7 +65,7 @@ echo 'Assurance non présente';
 ?>
 </div>
 <div class="col-md-2">
-<?php if (isset($inscrit->defense)){
+<?php if ($inscrit->defense!=""){
 echo '<a href="'.$urldocs.$inscrit->defense.'"target="_blank">Recensement</a>';}
 else{
 echo 'Recensement non présent';
