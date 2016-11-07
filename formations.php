@@ -180,7 +180,7 @@ wp_localize_script('carte_points', 'imageurl',  plugins_url('/carte/img/',__FILE
 }
 public function formations_scripts()
 {
-//wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
+wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
 wp_enqueue_script( 'PolyFiller','http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js' );
 wp_enqueue_script( 'ajout', plugins_url("js/ajout.js",__FILE__), array( 'jquery') , '1.0' );
 wp_localize_script('ajout', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
