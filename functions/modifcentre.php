@@ -14,60 +14,47 @@ $tel =  htmlspecialchars($_POST['tel_centre']);
 $gerant =  htmlspecialchars($_POST['gerant_centre']);
 $autre =  htmlspecialchars($_POST['autre_centre']);
 global $wpdb;
-if($_FILES['image_centre']["name"] == "")
-{
-$sql_update = 'UPDATE `{$wpdb->prefix}centre_formation` SET ';
-$sql_update.= '`centre`="'.$centre.'",';
-$sql_update.= '`adresse`="'.$adresse.'",';
-$sql_update.= '`code_postal`="'.$cp.'",';
-$sql_update.= '`ville`="'.$ville.'",';
-$sql_update.= '`e_mail`="'.$email.'",';
-$sql_update.= '`telephone`="'.$tel.'",';
-$sql_update.= '`site`="'.$site.'",';
-$sql_update.= '`gerant`="'.$gerant.'",';
-$sql_update.= '`autre`="'.$autre.'"';
-$sql_update.= ' WHERE `id`="'.$_POST['id'].'";';
-}
-else
+$update = array(
+"centre" => $centre,
+"adresse"=>$adresse,
+"$code_postal"=> $cp,
+"ville"=>$ville,
+"e_mail"=>$email,
+"telephone"=>$tel,
+"site"=>$site,
+"gerant"=>$gerant,
+"autre"=>$autre
+);
+if(!$_FILES['image_centre']["name"] == "")
 {
 $image = new Fichier($_FILES['image_centre'],"image");
 $imageResult = $image->fileUpload("centres",'_'.$centre,"");
 $imagename=$image->getName();
 if($imageResult["success"] == "true")
 {
-$sql_update = 'UPDATE `{$wpdb->prefix}centre_formation` SET ';
-$sql_update.= '`centre`="'.$centre.'",';
-$sql_update.= '`adresse`="'.$adresse.'",';
-$sql_update.= '`code_postal`="'.$cp.'",';
-$sql_update.= '`ville`="'.$ville.'",';
-$sql_update.= '`e_mail`="'.$email.'",';
-$sql_update.= '`telephone`="'.$tel.'",';
-$sql_update.= '`image`="'.$imageResult["name"].'",';
-$sql_update.= '`gerant`="'.$gerant.'",';
-$sql_update.= '`autre`="'.$autre.'",';
-$sql_update.= '`site`="'.$site.'"';
-$sql_update.= ' WHERE `id`="'.$_POST['id'].'";';
+$update["image"] = $imageResult["name"];
 }
 else
 {
 wp_send_json_error(array("status"=>$image->getResult()));
-
 }
 }
-$resultat = $wpdb->query($sql_update);
+$resultat = $wpdb->update( "{$wpdb->prefix}centre_formation",
+$update,
+array( 'id' => $_POST["id"] )
+);	
 if($resultat ==1 )
 {
-	wp_send_json_success();
+wp_send_json_success();
 }
 else
 {
-	wp_send_json_error(array("status"=>$sql_update));
+wp_send_json_error(array("status"=>$sql_update));
 }
 }
 else{
-	die();
+die();
 }
-
 }
 }
 ?>

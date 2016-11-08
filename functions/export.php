@@ -162,7 +162,6 @@ $filename= $formation->discipline.'-'.$formation->date_debut.'_inscrits.xls';
 }
 $writer->save(__DIR__.'/'.$filename);
 die( plugins_url($filename,__FILE__));
-
 }
 function age($date)
 {

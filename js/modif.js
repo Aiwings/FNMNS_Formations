@@ -2,7 +2,6 @@ function modif(el)
 {
 parent = el.parentNode.parentNode;
 var className = jQuery(el).attr('class');
-
 var html ="";
 var id= parent.id;
 switch(className)
@@ -30,7 +29,6 @@ case "fichier":
 var debut = jQuery("#date_debut_"+id).text().trim();
 var tab = debut.split('/');
 debut = tab[0]+'-'+tab[1]+'-'+tab[2];
-
 html += "<h2>Modification du fichier</h2><br/>";
 html+= '<p style="width:100%;text-align:center;">';
 html += '<input id="champ" required id="field" name="newFile" type="file" /><br />';
@@ -45,7 +43,6 @@ case "infos":
 var debut = jQuery("#date_debut_"+id).text().trim();
 var tab = debut.split('/');
 debut = tab[0]+'-'+tab[1]+'-'+tab[2];
-
 html += "<h2>Modification du fichier</h2><br/>";
 html+= '<p style="width:100%;text-align:center;">';
 html += '<input id="champ" required id="field" name="newInfos" type="file" /><br />';
@@ -99,10 +96,9 @@ contentType: false,
 .fail(addFail);
 }
 function modifSuccess(objet){
-    console.log(objet);
+console.log(objet);
 try
 {
-
 if(objet.success == true)
 {
 var html=' <span style="color :green; font-style:bold;"> ';
@@ -140,7 +136,6 @@ var valeur = jQuery(el).text();
 var date_debut = new Date(valeur);
 var date_fin = new Date(val);
 }
-
 if(testDate(date_debut,date_fin))
 {
 return true;

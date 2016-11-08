@@ -1,5 +1,5 @@
- #map {
-   width: 1024px;
-   height: 720px;
-   background-color: grey;
- }
+#map {
+width: 1024px;
+height: 720px;
+background-color: grey;
+}

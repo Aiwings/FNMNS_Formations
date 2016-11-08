@@ -19,7 +19,6 @@ AVERAGE                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Sta
 AVERAGEA                CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::AVERAGEA
 AVERAGEIF               CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::AVERAGEIF
 AVERAGEIFS              CATEGORY_STATISTICAL            ***  Not yet Implemented
-
 BAHTTEXT                CATEGORY_TEXT_AND_DATA          ***  Not yet Implemented
 BESSELI                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::BESSELI
 BESSELJ                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::BESSELJ
@@ -31,7 +30,6 @@ BIN2DEC                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Eng
 BIN2HEX                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::BINTOHEX
 BIN2OCT                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::BINTOOCT
 BINOMDIST               CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::BINOMDIST
-
 CEILING                 CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::CEILING
 CELL                    CATEGORY_INFORMATION            ***  Not yet Implemented
 CHAR                    CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::CHARACTER
@@ -73,7 +71,6 @@ CUBESETCOUNT            CATEGORY_CUBE                   ***  Not yet Implemented
 CUBEVALUE               CATEGORY_CUBE                   ***  Not yet Implemented
 CUMIPMT                 CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::CUMIPMT
 CUMPRINC                CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::CUMPRINC
-
 DATE                    CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::DATE
 DATEDIF                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::DATEDIF
 DATEVALUE               CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::DATEVALUE
@@ -104,7 +101,6 @@ DSUM                    CATEGORY_DATABASE               PHPExcel_Calculation_Dat
 DURATION                CATEGORY_FINANCIAL              ***  Not yet Implemented
 DVAR                    CATEGORY_DATABASE               PHPExcel_Calculation_Database::DVAR
 DVARP                   CATEGORY_DATABASE               PHPExcel_Calculation_Database::DVARP
-
 EDATE                   CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::EDATE
 EFFECT                  CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::EFFECT
 EOMONTH                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::EOMONTH
@@ -115,7 +111,6 @@ EVEN                    CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Mat
 EXACT                   CATEGORY_TEXT_AND_DATA          ***  Not yet Implemented
 EXP                     CATEGORY_MATH_AND_TRIG          exp
 EXPONDIST               CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::EXPONDIST
-
 FACT                    CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::FACT
 FACTDOUBLE              CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::FACTDOUBLE
 FALSE                   CATEGORY_LOGICAL                PHPExcel_Calculation_Logical::FALSE
@@ -132,7 +127,6 @@ FREQUENCY               CATEGORY_STATISTICAL            ***  Not yet Implemented
 FTEST                   CATEGORY_STATISTICAL            ***  Not yet Implemented
 FV                      CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::FV
 FVSCHEDULE              CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::FVSCHEDULE
-
 GAMMADIST               CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::GAMMADIST
 GAMMAINV                CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::GAMMAINV
 GAMMALN                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::GAMMALN
@@ -141,7 +135,6 @@ GEOMEAN                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Sta
 GESTEP                  CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::GESTEP
 GETPIVOTDATA            CATEGORY_LOOKUP_AND_REFERENCE   ***  Not yet Implemented
 GROWTH                  CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::GROWTH
-
 HARMEAN                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::HARMEAN
 HEX2BIN                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::HEXTOBIN
 HEX2DEC                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::HEXTODEC
@@ -150,7 +143,6 @@ HLOOKUP                 CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_Loo
 HOUR                    CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::HOUROFDAY
 HYPERLINK               CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::HYPERLINK
 HYPGEOMDIST             CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::HYPGEOMDIST
-
 IF                      CATEGORY_LOGICAL                PHPExcel_Calculation_Logical::STATEMENT_IF
 IFERROR                 CATEGORY_LOGICAL                PHPExcel_Calculation_Logical::IFERROR
 IMABS                   CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::IMABS
@@ -190,11 +182,8 @@ ISODD                   CATEGORY_INFORMATION            PHPExcel_Calculation_Fun
 ISPMT                   CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::ISPMT
 ISREF                   CATEGORY_INFORMATION            ***  Not yet Implemented
 ISTEXT                  CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::IS_TEXT
-
 JIS                     CATEGORY_TEXT_AND_DATA          ***  Not yet Implemented
-
 KURT                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::KURT
-
 LARGE                   CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::LARGE
 LCM                     CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::LCM
 LEFT                    CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::LEFT
@@ -210,7 +199,6 @@ LOGINV                  CATEGORY_STATISTICAL            PHPExcel_Calculation_Sta
 LOGNORMDIST             CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::LOGNORMDIST
 LOOKUP                  CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::LOOKUP
 LOWER                   CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::LOWERCASE
-
 MATCH                   CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::MATCH
 MAX                     CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::MAX
 MAXA                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::MAXA
@@ -233,7 +221,6 @@ MODE                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Sta
 MONTH                   CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::MONTHOFYEAR
 MROUND                  CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::MROUND
 MULTINOMIAL             CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::MULTINOMIAL
-
 N                       CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::N
 NA                      CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::NA
 NEGBINOMDIST            CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::NEGBINOMDIST
@@ -247,7 +234,6 @@ NOT                     CATEGORY_LOGICAL                PHPExcel_Calculation_Log
 NOW                     CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::DATETIMENOW
 NPER                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::NPER
 NPV                     CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::NPV
-
 OCT2BIN                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::OCTTOBIN
 OCT2DEC                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::OCTTODEC
 OCT2HEX                 CATEGORY_ENGINEERING            PHPExcel_Calculation_Engineering::OCTTOHEX
@@ -258,7 +244,6 @@ ODDLPRICE               CATEGORY_FINANCIAL              ***  Not yet Implemented
 ODDLYIELD               CATEGORY_FINANCIAL              ***  Not yet Implemented
 OFFSET                  CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::OFFSET
 OR                      CATEGORY_LOGICAL                PHPExcel_Calculation_Logical::LOGICAL_OR
-
 PEARSON                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::CORREL
 PERCENTILE              CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::PERCENTILE
 PERCENTRANK             CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::PERCENTRANK
@@ -276,10 +261,8 @@ PROB                    CATEGORY_STATISTICAL            ***  Not yet Implemented
 PRODUCT                 CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::PRODUCT
 PROPER                  CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::PROPERCASE
 PV                      CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::PV
-
 QUARTILE                CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::QUARTILE
 QUOTIENT                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::QUOTIENT
-
 RADIANS                 CATEGORY_MATH_AND_TRIG          deg2rad
 RAND                    CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::RAND
 RANDBETWEEN             CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::RAND
@@ -299,7 +282,6 @@ ROW                     CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_Loo
 ROWS                    CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::ROWS
 RSQ                     CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::RSQ
 RTD                     CATEGORY_LOOKUP_AND_REFERENCE   ***  Not yet Implemented
-
 SEARCH                  CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::SEARCHINSENSITIVE
 SEARCHB                 CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::SEARCHINSENSITIVE
 SECOND                  CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::SECONDOFMINUTE
@@ -330,7 +312,6 @@ SUMX2MY2                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_Mat
 SUMX2PY2                CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::SUMX2PY2
 SUMXMY2                 CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::SUMXMY2
 SYD                     CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::SYD
-
 T                       CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::RETURNSTRING
 TAN                     CATEGORY_MATH_AND_TRIG          tan
 TANH                    CATEGORY_MATH_AND_TRIG          tanh
@@ -351,10 +332,8 @@ TRUE                    CATEGORY_LOGICAL                PHPExcel_Calculation_Log
 TRUNC                   CATEGORY_MATH_AND_TRIG          PHPExcel_Calculation_MathTrig::TRUNC
 TTEST                   CATEGORY_STATISTICAL            ***  Not yet Implemented
 TYPE                    CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::TYPE
-
 UPPER                   CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::UPPERCASE
 USDOLLAR                CATEGORY_FINANCIAL              ***  Not yet Implemented
-
 VALUE                   CATEGORY_TEXT_AND_DATA          PHPExcel_Calculation_TextData::VALUE
 VAR                     CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::VARFunc
 VARA                    CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::VARA
@@ -363,19 +342,15 @@ VARPA                   CATEGORY_STATISTICAL            PHPExcel_Calculation_Sta
 VDB                     CATEGORY_FINANCIAL              ***  Not yet Implemented
 VERSION                 CATEGORY_INFORMATION            PHPExcel_Calculation_Functions::VERSION
 VLOOKUP                 CATEGORY_LOOKUP_AND_REFERENCE   PHPExcel_Calculation_LookupRef::VLOOKUP
-
 WEEKDAY                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::DAYOFWEEK
 WEEKNUM                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::WEEKOFYEAR
 WEIBULL                 CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::WEIBULL
 WORKDAY                 CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::WORKDAY
-
 XIRR                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::XIRR
 XNPV                    CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::XNPV
-
 YEAR                    CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::YEAR
 YEARFRAC                CATEGORY_DATE_AND_TIME          PHPExcel_Calculation_DateTime::YEARFRAC
 YIELD                   CATEGORY_FINANCIAL              ***  Not yet Implemented
 YIELDDISC               CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::YIELDDISC
 YIELDMAT                CATEGORY_FINANCIAL              PHPExcel_Calculation_Financial::YIELDMAT
-
 ZTEST                   CATEGORY_STATISTICAL            PHPExcel_Calculation_Statistical::ZTEST

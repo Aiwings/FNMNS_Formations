@@ -74,8 +74,6 @@ datatype:"json"
 function FillInputs(object)
 {
 try{
-
-
 jQuery("#nom-centre").val(object.centre);
 jQuery("#adresse-centre").val(object.adresse);
 jQuery("#cp-centre").val(object.cp);
@@ -128,7 +126,6 @@ function onCreationSuccess(objet)
 {
 try
 {
-
 if(objet.success == true)
 {
 jQuery("#title").html("Changements pris en compte ");

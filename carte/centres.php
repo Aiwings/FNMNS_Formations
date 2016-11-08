@@ -13,8 +13,7 @@ $centres[] = $row;
 wp_send_json($centres);
 }
 else{
-	die();
+die();
 }
-
 }
 ?>

@@ -3,13 +3,9 @@
 if (isset($_POST['id']))
 {
 global $wpdb ;
-
 $url = get_bloginfo("url")."/export/img/centres/";
-
-$sql_select = 'SELECT * FROM `centre_formation` WHERE id="'.$_POST['id'].'";';
-
+$sql_select = "SELECT * FROM `{$wpdb->prefix}centre_formation` WHERE id=".$_POST['id'].";";
 $reponse_select = $wpdb->get_results($sql_select );
-
 if (sizeof($reponse_select)== 1)
 {
 foreach ($reponse_select as $row)
@@ -51,13 +47,9 @@ echo $autre;
 </tr>
 </tbody>
 </table>
-
 <?php
 }
-
 }
-
-
 }
 die();
 }

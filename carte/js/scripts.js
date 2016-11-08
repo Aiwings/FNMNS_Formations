@@ -1,9 +1,6 @@
 var geocoder;
 var map;
 var mapurl = '../../../../wp-content/plugins/carte/';
-
-
-
 jQuery(document).ready(function(jQuery) {
 initMap() ;
 });
@@ -37,9 +34,6 @@ console.log("Geocode was not successful for the following reason: " + status);
 }
 });
 }
-
-
-
 /**************************************/
 /* Récupération des tracé des régions */
 /**************************************/
@@ -55,49 +49,44 @@ dataType:"json"
 .done(onSuccess)
 .fail(onFail);
 }
-
 /********************/
 /* Success Callback */
 /********************/
 function onSuccess (data)
 {
-
+	
 jQuery.each( data, function( index, obj ) 
 {	
 setPoly(obj);
 });
-
 }
 /********************/
 /* Failure Callback */
 /********************/
 function onFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );
+	console.log(jqXHR);
 }
-
-
 /********************************************/
 /* Mise en Forme en chemin de Polygone Gmap */
 /********************************************/
 function setPoly(chemin)
 {
-
 var poly = [];
-
 jQuery.each( chemin, function( index, point ) 
 {
+	
 var latLng = new google.maps.LatLng(point["lat"], point["lon"]);
 poly.push(latLng);
 });
 tracePoly(poly);
 }
-
-
 /*********************************/
 /* Tracé du Polygone Google Maps */
 /*********************************/
 function tracePoly(poly)
 {
+	
 var polygone = new google.maps.Polygon({
 paths: poly,
 strokeColor: '#FF0000',
@@ -108,19 +97,3 @@ fillOpacity: 0.2
 });
 polygone.setMap(map);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

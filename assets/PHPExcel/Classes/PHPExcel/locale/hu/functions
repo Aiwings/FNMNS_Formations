@@ -1,7 +1,6 @@
 ##
 ## PHPExcel
-##
-## Copyright (c) 2006 - 2013 PHPExcel
+#### Copyright (c) 2006 - 2013 PHPExcel
 ##
 ## This library is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU Lesser General Public
@@ -26,14 +25,10 @@
 ## Data in this file derived from http://www.piuha.fi/excel-function-name-translation/
 ##
 ##
-
-
 ##
 ##	Add-in and Automation functions			Bővítmények és automatizálási függvények
 ##
 GETPIVOTDATA		= KIMUTATÁSADATOT.VESZ		##	A kimutatásokban tárolt adatok visszaadására használható.
-
-
 ##
 ##	Cube functions Kockafüggvények   
 ##
@@ -44,8 +39,6 @@ CUBERANKEDMEMBER	= KOCKA.HALM.ELEM		##	Egy halmaz rangsor szerinti n-edik tagjá
 CUBESET			= KOCKA.HALM			##	Számított tagok vagy rekordok halmazát adja eredményül, ehhez egy beállított kifejezést elküld a kiszolgálón található kockának, majd ezt a halmazt adja vissza a Microsoft Office Excel alkalmazásnak.
 CUBESETCOUNT		= KOCKA.HALM.DB			##	Egy halmaz elemszámát adja eredményül.
 CUBEVALUE		= KOCKA.ÉRTÉK			##	Kockából összesített értéket ad eredményül.
-
-
 ##
 ##	Database functions				Adatbázis-kezelő függvények
 ##
@@ -61,8 +54,6 @@ DSTDEVP			= AB.SZÓRÁS2			##	A kijelölt adatbáziselemek teljes sokasága alap
 DSUM			= AB.SZUM			##	Összeadja a feltételnek megfelelő adatbázisrekordok mezőoszlopában a számokat.
 DVAR			= AB.VAR			##	A kijelölt adatbáziselemek mintája alapján becslést ad a szórásnégyzetre.
 DVARP			= AB.VAR2			##	A kijelölt adatbáziselemek teljes sokasága alapján kiszámítja a szórásnégyzetet.
-
-
 ##
 ##	Date and time functions				Dátumfüggvények
 ##
@@ -86,8 +77,6 @@ WEEKNUM			= WEEKNUM			##	Visszatérési értéke egy szám, amely azt mutatja me
 WORKDAY			= WORKDAY			##	Adott dátumnál adott munkanappal korábbi vagy későbbi dátum dátumértékét adja eredményül.
 YEAR			= ÉV				##	Sorszámot évvé alakít át.
 YEARFRAC		= YEARFRAC			##	Az adott dátumok közötti teljes napok számát törtévként adja meg.
-
-
 ##
 ##	Engineering functions				Mérnöki függvények
 ##
@@ -130,8 +119,6 @@ IMSUM			= IMSUM				##	Komplex számok összegét adja eredményül.
 OCT2BIN			= OCT2BIN			##	Oktális számot binárissá alakít át.
 OCT2DEC			= OCT2DEC			##	Oktális számot decimálissá alakít át.
 OCT2HEX			= OCT2HEX			##	Oktális számot hexadecimálissá alakít át.
-
-
 ##
 ##	Financial functions				Pénzügyi függvények
 ##
@@ -188,8 +175,6 @@ XNPV			= XNPV				##	Ütemezett készpénzforgalom (cash flow) nettó jelenlegi �
 YIELD			= YIELD				##	Periodikusan kamatozó értékpapír hozamát adja eredményül.
 YIELDDISC		= YIELDDISC			##	Leszámítolt értékpapír (például kincstárjegy) éves hozamát adja eredményül.
 YIELDMAT		= YIELDMAT			##	Lejáratkor kamatozó értékpapír éves hozamát adja eredményül.
-
-
 ##
 ##	Information functions				Információs függvények
 ##
@@ -210,8 +195,6 @@ ISTEXT			= SZÖVEG.E			##	Eredménye IGAZ, ha az érték szöveg.
 N			= N				##	Argumentumának értékét számmá alakítja.
 NA			= HIÁNYZIK			##	Eredménye a #HIÁNYZIK hibaérték.
 TYPE			= TÍPUS				##	Érték adattípusának azonosítószámát adja eredményül.
-
-
 ##
 ##	Logical functions				Logikai függvények
 ##
@@ -222,8 +205,6 @@ IFERROR			= HAHIBA			##	A megadott értéket adja vissza, ha egy képlet hibáho
 NOT			= NEM				##	Argumentuma értékének ellentettjét adja eredményül.
 OR			= VAGY				##	Eredménye IGAZ, ha bármely argumentuma IGAZ.
 TRUE			= IGAZ				##	Az IGAZ logikai értéket adja eredményül.
-
-
 ##
 ##	Lookup and reference functions			Keresési és hivatkozási függvények
 ##
@@ -244,8 +225,6 @@ ROWS			= SOROK				##	Egy hivatkozás sorainak számát adja meg.
 RTD			= RTD				##	Valós idejű adatokat keres vissza a COM automatizmust (automatizálás: Egy alkalmazás objektumaival való munka másik alkalmazásból vagy fejlesztőeszközből. A korábban OLE automatizmusnak nevezett automatizálás iparági szabvány, a Component Object Model (COM) szolgáltatása.) támogató programból.
 TRANSPOSE		= TRANSZPONÁLÁS			##	Egy tömb transzponáltját adja eredményül.
 VLOOKUP			= FKERES			##	A megadott tömb bal szélső oszlopában megkeres egy értéket, majd annak sora és a megadott oszlop metszéspontjában levő értéked adja eredményül.
-
-
 ##
 ##	Math and trigonometry functions			Matematikai és trigonometrikus függvények
 ##
@@ -309,8 +288,6 @@ SUMXMY2			= SZUMXBŐLY2			##	Két tömb megfelelő elemei különbségének nég
 TAN			= TAN				##	Egy szám tangensét számítja ki.
 TANH			= TANH				##	Egy szám tangens hiperbolikuszát számítja ki.
 TRUNC			= CSONK				##	Egy számot egésszé csonkít.
-
-
 ##
 ##	Statistical functions				Statisztikai függvények
 ##
@@ -397,8 +374,6 @@ VARP			= VARP				##	Egy statisztikai sokaság varianciáját számítja ki.
 VARPA			= VARPA				##	Egy statisztikai sokaság varianciáját számítja ki (beleértve számokat, szöveget és logikai értékeket).
 WEIBULL			= WEIBULL			##	A Weibull-féle eloszlás értékét számítja ki.
 ZTEST			= Z.PRÓBA			##	Az egyszélű z-próbával kapott valószínűségértéket számítja ki.
-
-
 ##
 ##	Text functions					Szövegműveletekhez használható függvények
 ##

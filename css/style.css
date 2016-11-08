@@ -6,7 +6,6 @@ width: 100px;
 .js .input-file-trigger {
 display: block;
 padding: 10px 10px;
-
 color: #777;
 font-size: 1em;
 transition: all .4s;
@@ -20,7 +19,6 @@ padding: 14px 0;
 opacity: 0;
 cursor: pointer;
 }
-
 /* quelques styles d'interactions */
 .js .input-file:hover + .input-file-trigger,
 .js .input-file:focus + .input-file-trigger,
@@ -29,7 +27,6 @@ cursor: pointer;
 background: #34495E;
 color: #39D2B4;
 }
-
 /* styles du retour visuel */
 .file-return {
 margin: 0;
@@ -50,7 +47,9 @@ content: "Selected file: ";
 font-style: normal;
 font-weight: normal;
 }
-
+.badge a{
+    z-index :-1!important;
+}
 .hidden{
 display:none;
 }
@@ -71,8 +70,20 @@ margin: 15% auto; /* 15% from the top and centered */
 padding: 20px;
 border: 1px solid #888;
 }
+
 #modif .popup-content{
-	width: 25%; /* Could be more or less, depending on screen size */
+width: 25%; /* Could be more or less, depending on screen size */
+}
+#preinscription .popup-content{
+    height:100%;
+
+}
+#preinscription #md_body{
+    height: inherit;
+
+}
+#preinscription fieldset{
+    overflow: hidden;
 }
 .close {
 color: #aaa;
@@ -80,7 +91,6 @@ float: right;
 font-size: 28px;
 font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
 color: black;
@@ -89,37 +99,47 @@ cursor: pointer;
 }
 input[type="email"],
 input[type="tel"]{
-    width: 90%;
-    padding: 10px;
-	margin: 0 0 20px 0;
-    border: none;
-    background: #e8e8e8;
-    background: rgba(100, 100, 100, 0.09);
+width: 90%;
+padding: 10px;
+margin: 0 0 20px 0;
+border: none;
+background: #e8e8e8;
+background: rgba(100, 100, 100, 0.09);
 }
-
 #preinscription_form{
-	width:80%;
-	margin:0 auto;
-
+    width:90%;
+    margin:0 auto;
+    overflow: scroll;
+    height: inherit;
 }
-.psubmit input {
-
+#preinscription_form .ligne {
+    width:100%;
+    float: left;
 }
+
 #preinscription_form p{
-	text-align:center;
+text-align:center;
 }
 .preventClick{
-	pointer-events: none;
+pointer-events: none;
 }
-
 #admin td p{
-	cursor:pointer;
+cursor:pointer;
 }
 #md_body{
-	width:95%;
-	margin:0 auto;
+width:95%;
+margin:0 auto;
 }
 .postid-47 .quicktags-toolbar, .wp-editor-tools, .wp-editor-wrap, .wp-switch-editor{
-	position:static!important;
+position:static!important;
 }
+@media screen and (max-width:1270px) and (min-width:960px)
+{
 
+    #md_body,#preinscription_form{
+        width:100%!important;
+    }
+    #preinscription_form fieldset{
+        padding:0!important;
+    }
+}

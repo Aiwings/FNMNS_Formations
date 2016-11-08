@@ -3,7 +3,6 @@
 if(isset($_POST["id"]))
 {
 global $wpdb;
-
 $result = array();
 try
 {
@@ -16,23 +15,21 @@ wp_send_json_success();
 }
 else
 {
-	throw new Exception($wpdb->print_error());
+throw new Exception($wpdb->print_error());
 }
 }
 else
 {
-	throw new Exception("Impossible de supprimer le fichier");
+throw new Exception("Impossible de supprimer le fichier");
 }
-
 }
 catch( Exception $e) {
-  	wp_send_json_error( array( "status"=>$e->getMessage()));
+wp_send_json_error( array( "status"=>$e->getMessage()));
 }
-
 }
 else
 {
-	die();
+die();
 }
 }
 ?>

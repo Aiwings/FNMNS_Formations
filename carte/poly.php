@@ -17,10 +17,10 @@ if($ligne !=="")
 if(trim($ligne)!="none" && trim($ligne)!="1" )
 {
 $point = explode("   ",$ligne);
-if(count($point) == 3)
+if(count($point) == 2)
 {
-$lat = trim($point[2]);
-$lon = trim($point[1]);
+$lat = trim($point[1]);
+$lon = trim($point[0]);
 $poly[] = array(
 "lat" =>  $lat,
 "lon" =>  $lon
@@ -32,7 +32,6 @@ $poly[] = array(
 $polys[] = $poly;
 }
 }
- wp_send_json($polys);
-
+wp_send_json($polys);
 }
 ?>

@@ -1,7 +1,6 @@
 ##
 ## PHPExcel
-##
-## Copyright (c) 2006 - 2013 PHPExcel
+#### Copyright (c) 2006 - 2013 PHPExcel
 ##
 ## This library is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU Lesser General Public
@@ -26,14 +25,10 @@
 ## Data in this file derived from http://www.piuha.fi/excel-function-name-translation/
 ##
 ##
-
-
 ##
 ##	Add-in and Automation functions				Funksjonene Tillegg og Automatisering
 ##
 GETPIVOTDATA		= HENTPIVOTDATA				##	Returnerer data som er lagret i en pivottabellrapport
-
-
 ##
 ##	Cube functions						Kubefunksjoner
 ##
@@ -44,8 +39,6 @@ CUBERANKEDMEMBER	= KUBERANGERTMEDLEM			##	Returnerer det n-te, eller rangerte, m
 CUBESET			= KUBESETT				##	Definerer et beregnet sett av medlemmer eller tuppeler ved å sende et settuttrykk til kuben på serveren, noe som oppretter settet og deretter returnerer dette settet til Microsoft Office Excel.
 CUBESETCOUNT		= KUBESETTANTALL			##	Returnerer antallet elementer i et sett.
 CUBEVALUE		= KUBEVERDI				##	Returnerer en aggregert verdi fra en kube.
-
-
 ##
 ##	Database functions					Databasefunksjoner
 ##
@@ -61,8 +54,6 @@ DSTDEVP			= DSTAVP				##	Beregner standardavviket basert på at merkede database
 DSUM			= DSUMMER				##	Legger til tallene i feltkolonnen med poster, i databasen som oppfyller vilkårene
 DVAR			= DVARIANS				##	Estimerer variansen basert på et utvalg av merkede databaseposter
 DVARP			= DVARIANSP				##	Beregner variansen basert på at merkede databaseposter utgjør hele populasjonen
-
-
 ##
 ##	Date and time functions					Dato- og tidsfunksjoner
 ##
@@ -86,8 +77,6 @@ WEEKNUM			= UKENR					##	Konverterer et serienummer til et tall som representere
 WORKDAY			= ARBEIDSDAG				##	Returnerer serienummeret som svarer til datoen før eller etter et angitt antall arbeidsdager
 YEAR			= ÅR					##	Konverterer et serienummer til et år
 YEARFRAC		= ÅRDEL					##	Returnerer brøkdelen for året, som svarer til antall hele dager mellom startdato og sluttdato
-
-
 ##
 ##	Engineering functions					Tekniske funksjoner
 ##
@@ -130,8 +119,6 @@ IMSUM			= IMSUMMER				##	Returnerer summen av komplekse tall
 OCT2BIN			= OKTTILBIN				##	Konverterer et oktaltall til et binært tall
 OCT2DEC			= OKTTILDES				##	Konverterer et oktaltall til et desimaltall
 OCT2HEX			= OKTTILHEKS				##	Konverterer et oktaltall til et heksadesimaltall
-
-
 ##
 ##	Financial functions					Økonomiske funksjoner
 ##
@@ -188,8 +175,6 @@ XNPV			= XNNV					##	Returnerer netto nåverdi for en serie kontantstrømmer som
 YIELD			= AVKAST				##	Returnerer avkastningen på et verdipapir som betaler periodisk rente
 YIELDDISC		= AVKAST.DISKONTERT			##	Returnerer årlig avkastning for et diskontert verdipapir, for eksempel en statskasseveksel
 YIELDMAT		= AVKAST.FORFALL			##	Returnerer den årlige avkastningen for et verdipapir som betaler rente ved forfallsdato
-
-
 ##
 ##	Information functions					Informasjonsfunksjoner
 ##
@@ -210,8 +195,6 @@ ISTEXT			= ERTEKST				##	Returnerer SANN hvis verdien er tekst
 N			= N					##	Returnerer en verdi som er konvertert til et tall
 NA			= IT					##	Returnerer feilverdien #I/T
 TYPE			= VERDITYPE				##	Returnerer et tall som indikerer datatypen til en verdi
-
-
 ##
 ##	Logical functions					Logiske funksjoner
 ##
@@ -222,8 +205,6 @@ IFERROR			= HVISFEIL				##	Returnerer en verdi du angir hvis en formel evaluerer
 NOT			= IKKE					##	Reverserer logikken til argumentet
 OR			= ELLER					##	Returnerer SANN hvis ett eller flere argumenter er lik SANN
 TRUE			= SANN					##	Returnerer den logiske verdien SANN
-
-
 ##
 ##	Lookup and reference functions				Oppslag- og referansefunksjoner
 ##
@@ -244,8 +225,6 @@ ROWS			= RADER					##	Returnerer antall rader i en referanse
 RTD			= RTD					##	Henter sanntidsdata fra et program som støtter COM-automatisering (automatisering: En måte å arbeide på med programobjekter fra et annet program- eller utviklingsverktøy. Tidligere kalt OLE-automatisering. Automatisering er en bransjestandard og en funksjon i Component Object Model (COM).)
 TRANSPOSE		= TRANSPONER				##	Returnerer transponeringen av en matrise
 VLOOKUP			= FINN.RAD				##	Leter i den første kolonnen i en matrise og flytter bortover raden for å returnere verdien til en celle
-
-
 ##
 ##	Math and trigonometry functions				Matematikk- og trigonometrifunksjoner
 ##
@@ -309,8 +288,6 @@ SUMXMY2			= SUMMERXMY2				##	Returnerer summen av kvadratene av differansen for 
 TAN			= TAN					##	Returnerer tangens for et tall
 TANH			= TANH					##	Returnerer den hyperbolske tangens for et tall
 TRUNC			= AVKORT				##	Korter av et tall til et heltall
-
-
 ##
 ##	Statistical functions					Statistiske funksjoner
 ##
@@ -397,8 +374,6 @@ VARP			= VARIANSP				##	Beregner varians basert på hele populasjonen
 VARPA			= VARIANSPA				##	Beregner varians basert på hele populasjonen, inkludert tall, tekst og logiske verdier
 WEIBULL			= WEIBULL.FORDELING			##	Returnerer Weibull-fordelingen
 ZTEST			= ZTEST					##	Returnerer den ensidige sannsynlighetsverdien for en z-test
-
-
 ##
 ##	Text functions						Tekstfunksjoner
 ##

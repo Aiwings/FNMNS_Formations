@@ -34,52 +34,53 @@ pour la formation du<?php echo strftime("%d/%m/%y",strtotime($formation->date_de
 </fieldset>
 <fieldset class="form-group col-md-4 ">
 <label for="paiement">Moyen de Paiement *</label>
-<select name="paiement" id="paiement" required style="margin:0;">
-<option value="Individuel" active>Individuel</option>
+<select name="paiement" id="paiement" required style="margin:0;height: auto;">
+<option selected value=""></option>
+<option value="Individuel">Individuel</option>
 <option value="Pris en charge">Pris en charge</option>
 </select>
 </fieldset>
 </div>
 <div class="row">
 <h2>Diplôme éventuels</h2><br />
-<fieldset class="form-group col-md-3 ">
+<fieldset class="form-group col-md-3 "style="overflow:hidden;">
 <label for="diplome">Diplôme </label>
 <input type="text"  name="diplome" id="diplome" class="form-control"  />
 </fieldset>
-<fieldset class="form-group col-md-3 ">
+<fieldset class="form-group col-md-3 "style="overflow:hidden;">
 <label for="no_diplome">N° de Diplôme </label>
 <input type="text"  name="no_diplome" id="no_diplome" class="form-control"  />
 </fieldset>
-<fieldset class="form-group col-md-3 ">
+<fieldset class="form-group col-md-3 "style="overflow:hidden;">
 <label for="date_diplome">Date de diplome </label>
 <input type="date"  name="date_diplome" id="date_diplome" class="form-control" />
 </fieldset>
-<fieldset class="form-group col-md-3 ">
+<fieldset class="form-group col-md-3 "style="overflow:hidden;">
 <label for="dr_delivrance">DR de délivrance</label>
 <input type="text"  name="dr_delivrance" id="dr_delivrance" class="form-control"  />
 </fieldset>
 </div>
 <div class="row">
 <h2>Documents administratifs obligatoires</h2><br />
-<fieldset class="form-group col-md-3 obligatoire ">
+<fieldset class="form-group col-md-3 obligatoire "style="overflow:hidden;">
 <p style="line-height:25px;">Carte d'identité (recto verso) ou passeport *</p>
 <div class="input">
 <input type="file" name="carte" id="carte" required />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 obligatoire ">
+<fieldset class="form-group col-md-3 obligatoire "style="overflow:hidden;">
 <p>Certificat Médical *</p>
 <div class="input">
 <input type="file" name="certif" id="certif" required />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 obligatoire">
+<fieldset class="form-group col-md-3 obligatoire"style="overflow:hidden;">
 <p style="line-height:25px;" >Justificatif d'assurance maladie *</p>
 <div class="input">
 <input type="file" name="assurance" id="assurance" required />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 obligatoire">
+<fieldset class="form-group col-md-3 obligatoire"style="overflow:hidden;">
 <p>Attestation de recensement *</p>
 <div class="input">
 <input type="file" name="defense" id="defense" required />
@@ -88,25 +89,25 @@ pour la formation du<?php echo strftime("%d/%m/%y",strtotime($formation->date_de
 </div>
 <h2>Documents complémentaires</h2><br />
 <div class="row">
-<fieldset class="form-group col-md-3 options ">
+<fieldset class="form-group col-md-3 options "style="overflow:hidden;">
 <p>document 1</p>
 <div class="input">
 <input type="file" name="doc1" id="doc1"  />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 options ">
+<fieldset class="form-group col-md-3 options "style="overflow:hidden;">
 <p>document 2</p>
 <div class="input">
 <input type="file" name="doc2" id="doc2"  />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 options">
+<fieldset class="form-group col-md-3 options"style="overflow:hidden;">
 <p>document 3</p>
 <div class="input">
 <input type="file" name="doc3" id="doc3"  />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-3 options">
+<fieldset class="form-group col-md-3 options"style="overflow:hidden;">
 <p>document 4</p>
 <div class="input">
 <input type="file" name="doc4" id="doc4"  />
@@ -114,19 +115,19 @@ pour la formation du<?php echo strftime("%d/%m/%y",strtotime($formation->date_de
 </fieldset>
 </div>
 <div class="row">
-<fieldset class="form-group col-md-4 options">
+<fieldset class="form-group col-md-4 options"style="overflow:hidden;">
 <p>document 5</p>
 <div class="input">
 <input type="file" name="doc5" id="doc5"  />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-4 options">
+<fieldset class="form-group col-md-4 options"style="overflow:hidden;">
 <p>document 6</p>
 <div class="input">
 <input type="file" name="doc6" id="doc6"  />
 </div>
 </fieldset>
-<fieldset class="form-group col-md-4 options">
+<fieldset class="form-group col-md-4 options"style="overflow:hidden;">
 <p>document 7</p>
 <div class="input">
 <input type="file" name="doc7" id="doc7"  />

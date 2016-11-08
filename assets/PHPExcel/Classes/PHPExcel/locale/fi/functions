@@ -1,7 +1,6 @@
 ##
 ## PHPExcel
-##
-## Copyright (c) 2006 - 2013 PHPExcel
+#### Copyright (c) 2006 - 2013 PHPExcel
 ##
 ## This library is free software; you can redistribute it and/or
 ## modify it under the terms of the GNU Lesser General Public
@@ -26,14 +25,10 @@
 ## Data in this file derived from http://www.piuha.fi/excel-function-name-translation/
 ##
 ##
-
-
 ##
 ##	Add-in and Automation functions			Apuohjelma- ja automaatiofunktiot
 ##
 GETPIVOTDATA		= NOUDA.PIVOT.TIEDOT		##	Palauttaa pivot-taulukkoraporttiin tallennettuja tietoja.
-
-
 ##
 ##	Cube functions					Kuutiofunktiot
 ##
@@ -44,8 +39,6 @@ CUBERANKEDMEMBER	= KUUTIONLUOKITELTUJÄSEN	##	Palauttaa joukon n:nnen jäsenen. 
 CUBESET			= KUUTIOJOUKKO			##	Määrittää lasketun jäsen- tai monikkojoukon lähettämällä joukon lausekkeita palvelimessa olevalle kuutiolle. Palvelin luo joukon ja palauttaa sen Microsoft Office Excelille.
 CUBESETCOUNT		= KUUTIOJOUKKOJENMÄÄRÄ		##	Palauttaa joukon kohteiden määrän.
 CUBEVALUE		= KUUTIONARVO			##	Palauttaa koostetun arvon kuutiosta.
-
-
 ##
 ##	Database functions				Tietokantafunktiot
 ##
@@ -61,8 +54,6 @@ DSTDEVP			= TKESKIHAJONTAP		##	Laskee keskihajonnan tietokannasta valittujen arv
 DSUM			= TSUMMA			##	Lisää luvut määritetyn ehdon täyttävien tietokannan tietueiden kenttäsarakkeeseen.
 DVAR			= TVARIANSSI			##	Laskee varianssin tietokannasta valittujen arvojen otoksen perusteella.
 DVARP			= TVARIANSSIP			##	Laskee varianssin tietokannasta valittujen arvojen koko populaation perusteella.
-
-
 ##
 ##	Date and time functions				Päivämäärä- ja aikafunktiot
 ##
@@ -86,8 +77,6 @@ WEEKNUM			= VIIKKO.NRO			##	Muuntaa järjestysluvun luvuksi, joka ilmaisee viiko
 WORKDAY			= TYÖPÄIVÄ			##	Palauttaa järjestysluvun päivämäärälle, joka sijaitsee annettujen työpäivien verran eteen tai taaksepäin.
 YEAR			= VUOSI				##	Muuntaa järjestysluvun vuosiksi.
 YEARFRAC		= VUOSI.OSA			##	Palauttaa määritettyjen päivämäärien (aloituspäivä ja lopetuspäivä) välisen osan vuodesta.
-
-
 ##
 ##	Engineering functions				Tekniset funktiot
 ##
@@ -130,8 +119,6 @@ IMSUM			= KOMPLEKSI.SUM			##	Palauttaa kompleksilukujen summan.
 OCT2BIN			= OKTBIN			##	Muuntaa oktaaliluvun binaariluvuksi.
 OCT2DEC			= OKTDES			##	Muuntaa oktaaliluvun desimaaliluvuksi.
 OCT2HEX			= OKTHEKSA			##	Muuntaa oktaaliluvun heksadesimaaliluvuksi.
-
-
 ##
 ##	Financial functions				Rahoitusfunktiot   
 ##
@@ -188,8 +175,6 @@ XNPV			= NNA.JAKSOTON			##	Palauttaa nettonykyarvon kassavirtasarjalle, joka ei 
 YIELD			= TUOTTO			##	Palauttaa tuoton arvopaperille, jonka korko maksetaan säännöllisin väliajoin.
 YIELDDISC		= TUOTTO.DISK			##	Palauttaa diskontatun arvopaperin, kuten obligaation, vuosittaisen tuoton.
 YIELDMAT		= TUOTTO.ERÄP			##	Palauttaa erääntymispäivänään korkoa tuottavan arvopaperin vuosittaisen tuoton.
-
-
 ##
 ##	Information functions				Erikoisfunktiot
 ##
@@ -210,8 +195,6 @@ ISTEXT			= ONTEKSTI			##	Palauttaa arvon TOSI, jos arvo on teksti.
 N			= N				##	Palauttaa arvon luvuksi muunnettuna.
 NA			= PUUTTUU			##	Palauttaa virhearvon #PUUTTUU!.
 TYPE			= TYYPPI			##	Palauttaa luvun, joka ilmaisee arvon tietotyypin.
-
-
 ##
 ##	Logical functions				Loogiset funktiot
 ##
@@ -222,8 +205,6 @@ IFERROR			= JOSVIRHE			##	Palauttaa määrittämäsi arvon, jos kaavan tulos on 
 NOT			= EI				##	Kääntää argumentin loogisen arvon.
 OR			= TAI				##	Palauttaa arvon TOSI, jos minkä tahansa argumentin arvo on TOSI.
 TRUE			= TOSI				##	Palauttaa totuusarvon TOSI.
-
-
 ##
 ##	Lookup and reference functions			Haku- ja viitefunktiot
 ##
@@ -244,8 +225,6 @@ ROWS			= RIVIT				##	Palauttaa viittauksessa olevien rivien määrän.
 RTD			= RTD				##	Noutaa COM-automaatiota (automaatio: Tapa käsitellä sovelluksen objekteja toisesta sovelluksesta tai kehitystyökalusta. Automaatio, jota aiemmin kutsuttiin OLE-automaatioksi, on teollisuusstandardi ja COM-mallin (Component Object Model) ominaisuus.) tukevasta ohjelmasta reaaliaikaisia tietoja.
 TRANSPOSE		= TRANSPONOI			##	Palauttaa matriisin käänteismatriisin.
 VLOOKUP			= PHAKU				##	Suorittaa haun matriisin ensimmäisestä sarakkeesta ja palauttaa rivillä olevan solun arvon.
-
-
 ##
 ##	Math and trigonometry functions			Matemaattiset ja trigonometriset funktiot
 ##
@@ -309,8 +288,6 @@ SUMXMY2			= EROTUSTEN.NELIÖSUMMA		##	Palauttaa kahden matriisin toisiaan vastaa
 TAN			= TAN				##	Palauttaa luvun tangentin.
 TANH			= TANH				##	Palauttaa luvun hyperbolisen tangentin.
 TRUNC			= KATKAISE			##	Katkaisee luvun kokonaisluvuksi.
-
-
 ##
 ##	Statistical functions				Tilastolliset funktiot
 ##
@@ -397,8 +374,6 @@ VARP			= VARP				##	Laskee varianssin koko populaation perusteella.
 VARPA			= VARPA				##	Laskee populaation varianssin koko populaation perusteella, mukaan lukien luvut, tekstin ja totuusarvot.
 WEIBULL			= WEIBULL			##	Palauttaa Weibullin jakauman.
 ZTEST			= ZTESTI			##	Palauttaa z-testin yksisuuntaisen todennäköisyysarvon.
-
-
 ##
 ##	Text functions					Tekstifunktiot
 ##

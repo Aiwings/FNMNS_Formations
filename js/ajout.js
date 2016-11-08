@@ -63,7 +63,6 @@ return false;
 return true;
 }
 function addSuccess(objet){
-
 try {
 jQuery('#response').html(objet.data.text);
 if(objet.success == true)
@@ -94,7 +93,6 @@ var data = {
 action: 'ajout_discipline',
 discipline :discipline
 };
-
 var ajaxRequest = jQuery.ajax( {
 url : ajaxurl,
 method :"POST",

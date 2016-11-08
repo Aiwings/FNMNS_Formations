@@ -14,7 +14,7 @@ class FNMNS_Formations
 public function __construct()
 {
 register_activation_hook(__FILE__, array('FNMNS_Formations', 'install'));
-//register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
+register_uninstall_hook(__FILE__, array('FNMNS_Formations', 'uninstall'));
 add_action('activated_plugin',array('FNMNS_Formations','save_error'));
 $this->include_views();
 $this->include_functions();
@@ -31,7 +31,6 @@ add_filter('admin_head',array($this,'ShowTinyMCE'));
 define("FORMATION_ROOT",plugin_dir_path( __FILE__ ));
 define("FORMATION_URL",plugins_url("/",__FILE__ ));
 }
-
 public static function install()
 {
 include_once plugin_dir_path( __FILE__ ).'/functions/install.php';
@@ -45,7 +44,7 @@ $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}formation;");
 $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}preinscrits;");
 }
 public static function save_error(){
-    update_option('plugin_error',  ob_get_contents());
+update_option('plugin_error',  ob_get_contents());
 }
 private function include_views()
 {
@@ -168,7 +167,7 @@ public function map_scripts()
 global $wpdb;
 $sql_map = 'SELECT ID FROM `wp_posts` WHERE `post_title` = "Centres de Formation" AND post_status="publish" ;';
 $mapID = $wpdb->get_var($sql_map);
-if(is_single($mapID) && !current_user_can( 'manage_options' )){
+if((is_single($mapID) || is_page($mapID))&& !current_user_can( 'manage_options' )){
 wp_enqueue_script( 'GoogleMap','https://maps.googleapis.com/maps/api/js?key=AIzaSyA0goj_KyUSm3Dvl4zAz-S1ebCYOvK8lGY' );
 wp_enqueue_script('jquery');
 wp_enqueue_script( 'carte_scripts',plugins_url("carte/js/scripts.js",__FILE__), array( 'jquery') , '1.0' );
@@ -180,7 +179,7 @@ wp_localize_script('carte_points', 'imageurl',  plugins_url('/carte/img/',__FILE
 }
 public function formations_scripts()
 {
-//wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
+wp_enqueue_script( 'Modernizr','http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js' );
 wp_enqueue_script( 'PolyFiller','http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js' );
 wp_enqueue_script( 'ajout', plugins_url("js/ajout.js",__FILE__), array( 'jquery') , '1.0' );
 wp_localize_script('ajout', 'ajaxurl', admin_url( 'admin-ajax.php' ) );

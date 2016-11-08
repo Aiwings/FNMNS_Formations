@@ -30,21 +30,20 @@ array( '%d' )
 );
 if($reponse_modif  ==1 )
 {
-    wp_send_json_success();
+wp_send_json_success();
 }
 else
 {
-  throw new Exception( $wpdb->print_error());
+throw new Exception( $wpdb->print_error());
 }
 }
 catch( Exception $e) {
-   	wp_send_json_error(array("status"=>'Exception reçue : '.  $e->getMessage(). "\n") );
+wp_send_json_error(array("status"=>'Exception reçue : '.  $e->getMessage(). "\n") );
 }
 }
 else
 {
-  	wp_send_json_error(array("status"=>'Pas de id'));
+wp_send_json_error(array("status"=>'Pas de id'));
 }
-
 }
 ?>

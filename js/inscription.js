@@ -20,8 +20,8 @@ var preinscription = document.getElementById("preinscription");
 preinscription.onsubmit = preinscrire;
 }
 var preinscrire = function(e){
-	var idformation = document.getElementById("idformation");
-	console.log(idformation.value);
+var idformation = document.getElementById("idformation");
+console.log(idformation.value);
 e.preventDefault();
 var form = document.getElementById("preinscription_form");
 var formData = new FormData(form);
@@ -39,7 +39,6 @@ function onPreinscription(object)
 {
 try
 {
-
 if(object.success == true)
 {
 var html = '<span style="color:green;">'
@@ -119,7 +118,6 @@ contentType: false,
 function onModifPre(object){
 try
 {
-
 if(object.success == true)
 {
 location.reload();

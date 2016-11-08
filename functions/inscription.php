@@ -3,7 +3,6 @@
 if( isset($_POST['id']))
 {
 global $wpdb;
-
 $reponse_inscrire = $wpdb->update(
 "{$wpdb->prefix}preinscrits",
 array(
@@ -21,13 +20,11 @@ wp_send_json_success();
 }
 else
 {
-	wp_send_json_error( array( "status"=> $wpdb->print_error()));
+wp_send_json_error( array( "status"=> $wpdb->print_error()));
 }
-
 }
 else{
-	die();
+die();
 }
-
 }
 ?>

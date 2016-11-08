@@ -84,10 +84,8 @@ private function displayRows($reponse_formations)
 {
 foreach ($reponse_formations as $row_formations)
 {
-
-	$fichier =  str_replace('\\', '', $row_formations->fichier);
-	$infos =  str_replace('\\', '', $row_formations->infos);
-
+$fichier =  str_replace('\\', '', $row_formations->fichier);
+$infos =  str_replace('\\', '', $row_formations->infos);
 ?>
 <tr id="<?php echo $row_formations->id;?>">
 <td  class="centre" id="centre_<?php echo $row_formations->id;?>">
@@ -152,9 +150,8 @@ private function tabEnd()
 }
 private function addForm()
 {
-	echo get_option('plugin_error');
+echo get_option('plugin_error');
 ?>
-
 <h2>Ajouter une formation</h2>
 <form name="ajoutForm"enctype="multipart/form-data" method="POST" id="ajoutForm" class="row">
 <div class="col-md-3">
