@@ -37,14 +37,14 @@ return false;
 function onInscription(objet)
 {
 try{
-var objet = json.Parse(data);
-if(objet.success == "true")
+
+if(objet.success == true)
 {
 alert("Merci , vos informations ont bien été transmises !");
 jQuery("#result").html("Merci , vos informations ont bien été transmises !")
 }
 else {
-jQuery("#result").html(objet.status);
+jQuery("#result").html(objet.data.status);
 }
 }
 catch(e){
@@ -54,4 +54,5 @@ jQuery("#result").html(objet);
 function onInscriptionFail(jqXHR, textStatus)
 {
 alert( "Request failed: " + textStatus );
+console.log(jqXHR);
 }

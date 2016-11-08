@@ -36,16 +36,16 @@ die( 'Exception reçue : '.  $e->getMessage(). "\n");
 }
 $carte = new Fichier($_FILES["carte"],"pdf");
 $carteOk = $carte->fileUpload("inscriptions","",$formation."_".$nom."_CI_");
-if($carteOk["success"] !="true") {errors($carte); exit(1); }
+if($carteOk["success"] !="true") {errors($carte);}
 $certif = new Fichier($_FILES["certif"],"pdf");
 $certifOk = $certif->fileUpload("inscriptions","",$formation."_".$nom."_certif_");
-if($certifOk["success"] !="true") {errors($certif); exit(1); }
+if($certifOk["success"] !="true") {errors($certif);  }
 $assurance = new Fichier($_FILES["assurance"],"pdf");
 $assuranceOk = $assurance->fileUpload("inscriptions","",$formation."_".$nom."_assurance_");
-if($assuranceOk["success"] !="true") {errors($assurance);exit(1); }
+if($assuranceOk["success"] !="true") {errors($assurance); }
 $defense = new Fichier($_FILES["defense"],"pdf");
 $defenseOk = $defense->fileUpload("inscriptions","",$formation."_".$nom."_defense_");
-if($defenseOk["success"] !="true") {errors($defense); exit(1); }
+if($defenseOk["success"] !="true") {errors($defense);  }
 $hasdocs = false ;
 for ($i=1;$i<=7;$i++)
 {
@@ -93,26 +93,22 @@ array( '%d' )
 );
 if($reponse_modif == 1)// will die() true if succefull else it will die() false
 {
-$result= array(
-"success"=>"true"
-);
+wp_send_json_success();
 }
 else
 {
 $result= array(
-"success"=>"false",
 "status"=>$wpdb->print_error()
 );
 }
-wp_send_json($result);
+wp_send_json_error($result);
 }
 function errors($file)
 {
 $result = array (
-"success" =>"false",
 "status" =>$file->getResult(),
 "file" => $file->getName()
 );
-wp_send_json($result);
+wp_send_json_error($result);
 }
 ?>
