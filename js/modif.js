@@ -52,15 +52,16 @@ html += '<input  name="debut" id="debut"  type="hidden" value="'+debut+'"/>';
 html += '</p>';
 }
 break;
-default:
+ default:
 {
-html += "<h2>Modification "+className+"</h2><br/>";
+	return;
+/* html += "<h2>Modification "+className+"</h2><br/>";
 html+= '<p style="width:100%;text-align:center;">';
 html += '<input id="champ" required name="'+className+'" type="text" placeholder="'+className+'"/><br />';
 html += '<input  name="id" id="idchamp"  type="hidden" value="'+id+'"/>';
-html += '</p>';
+html += '</p>'; */
 }
-break;
+break; 
 }
 html+= '<p style="width:100%;text-align:center;">';
 html += '</p>';
