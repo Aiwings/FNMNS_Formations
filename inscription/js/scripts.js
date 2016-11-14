@@ -45,14 +45,18 @@ jQuery("#result").html("Merci , vos informations ont bien été transmises !")
 }
 else {
 jQuery("#result").html(objet.data.status);
+alert(objet.data.status);
+location.reload();
 }
 }
 catch(e){
 jQuery("#result").html(objet);
+alert(objet);
+location.reload();
 }
 }
 function onInscriptionFail(jqXHR, textStatus)
 {
-alert( "Request failed: " + textStatus );
+alert( "L'inscription a échoué " + textStatus );
 console.log(jqXHR);
 }
