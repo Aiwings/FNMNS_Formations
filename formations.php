@@ -27,10 +27,25 @@ add_action( 'wp_enqueue_scripts', array($this,'formations_scripts') );
 add_action( 'wp_enqueue_scripts', array($this,'map_scripts') );
 add_action( 'wp_enqueue_scripts', array($this,'inscription_scripts') );
 add_action( 'post_edit_form_tag' ,array($this,'post_edit_form_tag' ));
+
+add_filter( 'json_serve_request', array($this,'enable_crossdomain'));
 add_filter('admin_head',array($this,'ShowTinyMCE'));
+
 define("FORMATION_ROOT",plugin_dir_path( __FILE__ ));
 define("FORMATION_URL",plugins_url("/",__FILE__ ));
 }
+
+
+public static function enable_crossdomain() {
+	$domains = array( 'http://fnmns34.fr', 'http://www.fnmns34.fr' );
+	if( isset( $_SERVER['HTTP_ORIGIN'])&& in_array( $_SERVER['HTTP_ORIGIN'], $domain ) )  {
+		
+		$domain = $_SERVER['HTTP_ORIGIN'];
+ 
+		header( "Access-Control-Allow-Origin: {$domain}" );
+	}		
+}
+
 public static function install()
 {
 include_once plugin_dir_path( __FILE__ ).'/functions/install.php';
@@ -74,6 +89,7 @@ include_once plugin_dir_path( __FILE__ ).'/functions/deletefile.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/cleanUp.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/pieces.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/fichier.php';
+include_once plugin_dir_path( __FILE__ ).'/functions/externe.php';
 }
 private function include_carte(){
 include_once plugin_dir_path( __FILE__ ).'/carte/poly.php';
@@ -145,11 +161,13 @@ add_action( 'wp_ajax_update', 'update' );
 add_action( 'wp_ajax_nopriv_update', 'update' );
 add_action( 'wp_ajax_pieces', 'pieces' );
 add_action( 'wp_ajax_nopriv_pieces', 'pieces' );
+add_action( 'wp_ajax_externe', 'externe' );
+add_action( 'wp_ajax_nopriv_externe', 'externe' );
 }
 public function post_edit_form_tag( ) {
 echo 'enctype="multipart/form-data"';
 }
-function ShowTinyMCE() {
+public static function ShowTinyMCE() {
 // conditions here
 wp_enqueue_script( 'common' );
 wp_enqueue_script( 'jquery-color' );
@@ -167,7 +185,7 @@ public function map_scripts()
 global $wpdb;
 $sql_map = 'SELECT ID FROM `wp_posts` WHERE `post_title` = "Centres de Formation" AND post_status="publish" ;';
 $mapID = $wpdb->get_var($sql_map);
-if((is_single($mapID) || is_page($mapID))&& !current_user_can( 'manage_options' )){
+if((is_single($mapID) || is_page($mapID)) && !current_user_can( 'manage_options' )){
 wp_enqueue_script( 'GoogleMap','https://maps.googleapis.com/maps/api/js?key=AIzaSyA0goj_KyUSm3Dvl4zAz-S1ebCYOvK8lGY' );
 wp_enqueue_script('jquery');
 wp_enqueue_script( 'carte_scripts',plugins_url("carte/js/scripts.js",__FILE__), array( 'jquery') , '1.0' );
