@@ -27,16 +27,16 @@ Les Fichiers à transmettre doivent impérativement être au format pdf et avoir
 <br />
 </div>
 <div class="row">
-<fieldset class="form-group ">
+<fieldset class="form-group col-md-4">
 <label for="date_naissance">Date de Naissance *</label>
 <input type="date"  name="date_naissance" id="date_naissance" class="form-control" required />
 <input type="hidden" name="age" id="age" />
 </fieldset>
-<fieldset class="form-group ">
+<fieldset class="form-group col-md-4 ">
 <label for="lieu_naissance">Lieu de Naissance *</label>
 <input type="text"  name="lieu_naissance" id="lieu_naissance" class="form-control" required />
 </fieldset>
-<fieldset class="form-group ">
+<fieldset class="form-group col-md-4">
 <label for="paiement">Moyen de Paiement *</label>
 <select name="paiement" id="paiement" required style="margin:0;height: auto;">
 <option selected value=""></option>
