@@ -28,7 +28,7 @@ add_action( 'wp_enqueue_scripts', array($this,'map_scripts') );
 add_action( 'wp_enqueue_scripts', array($this,'inscription_scripts') );
 add_action( 'post_edit_form_tag' ,array($this,'post_edit_form_tag' ));
 
-add_filter( 'json_serve_request', array($this,'enable_crossdomain'));
+// add_filter( 'json_serve_request', array($this,'enable_crossdomain'));
 add_filter('admin_head',array($this,'ShowTinyMCE'));
 
 define("FORMATION_ROOT",plugin_dir_path( __FILE__ ));
@@ -36,15 +36,15 @@ define("FORMATION_URL",plugins_url("/",__FILE__ ));
 }
 
 
-public static function enable_crossdomain() {
-	$domains = array( 'http://fnmns34.fr', 'http://www.fnmns34.fr' );
-	if( isset( $_SERVER['HTTP_ORIGIN'])&& in_array( $_SERVER['HTTP_ORIGIN'], $domain ) )  {
+// public static function enable_crossdomain() {
+// 	$domains = array( 'http://fnmns34.fr', 'http://www.fnmns34.fr' );
+// 	if( isset( $_SERVER['HTTP_ORIGIN'])&& in_array( $_SERVER['HTTP_ORIGIN'], $domain ) )  {
 		
-		$domain = $_SERVER['HTTP_ORIGIN'];
+// 		$domain = $_SERVER['HTTP_ORIGIN'];
  
-		header( "Access-Control-Allow-Origin: {$domain}" );
-	}		
-}
+// 		header( "Access-Control-Allow-Origin: {$domain}" );
+// 	}		
+// }
 
 public static function install()
 {
