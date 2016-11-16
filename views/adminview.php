@@ -163,7 +163,7 @@ echo get_option('plugin_error');
 </div>
 </div>
 <div class="col-md-1">
-<div class="input-file-container"
+<div class="input-file-container">
 <input class="input-file" id="fileInfo"   name="fileInfo" type="file" value="this.value">
 <label for="fileInfo" class="input-file-trigger" tabindex="0">Infos...</label>
 </div>

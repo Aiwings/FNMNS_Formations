@@ -85,7 +85,7 @@ foreach ($reponse_formations as $row_formations)
 </td>
 <td width="100px">
 <?php if($row_formations->infos!=""){ ?>
-<a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/export/".$row_formations->discipline."/".$row_formations->infos;?>" title="infos">
+<a href="<?php echo plugins_url("formations/export/").$row_formations->discipline."/".$row_formations->infos;?>" title="infos">
 infos...
 </a>
 <?php } ?>
