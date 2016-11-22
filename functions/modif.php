@@ -47,7 +47,7 @@ if(isset($_FILES["newFile"]) && isset ($_POST["dis"]) && isset ($_POST["debut"])
 {
 try
 {
-$delete = 	delfile( $_POST["id"],0);
+$delete = delfile( $_POST["id"],0);
 if($delete)
 {
 $newFile = new Fichier($_FILES["newFile"],"pdf");
@@ -80,7 +80,7 @@ if(isset($_FILES["newInfos"]) && isset ($_POST["dis"]) && isset ($_POST["debut"]
 try
 {
 $delete = 	delfile( $_POST["id"],1);
-$fileresult = fileupload($_FILES["newInfos"],$_POST["dis"],$suf);
+
 if($delete)
 {
 $suf = $_POST["debut"].'_infos';
