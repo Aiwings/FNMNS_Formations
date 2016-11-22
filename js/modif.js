@@ -127,14 +127,16 @@ function prepareTest(name,id,val){
 if(name == "date_debut")
 {	var el = "#date_fin_"+id;
 var valeur = jQuery(el).text();
-var date_fin = new Date(valeur);
+var split =  valeur.split("/");
+var date_fin = new Date(split[1]+"/"+split[0]+"/"+split[2]);
 var date_debut = new Date(val);
 }
 else
 {
 var el = "#date_debut_"+id;
 var valeur = jQuery(el).text();
-var date_debut = new Date(valeur);
+var split =  valeur.split("/");
+var date_debut = new Date(split[1]+"/"+split[0]+"/"+split[2]);
 var date_fin = new Date(val);
 }
 console.log(date_debut,date_fin);
