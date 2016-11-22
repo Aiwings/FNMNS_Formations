@@ -46,9 +46,13 @@ foreach ($rep_user as $user)
 {
 if(send($formation,$user))
 {
+$url =  "http://".$_SERVER['HTTP_HOST'];
+$urlfichier = $url."/export/".$formation->discipline.'/'.$fichier;
+
+
 $data = array(
 "status" =>"Message Envoyé",
-"url"=> $formation->fichier
+"url"=> $urlfichier
 );
 wp_send_json_success( $data);
 }
