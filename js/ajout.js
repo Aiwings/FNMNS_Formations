@@ -54,7 +54,7 @@ return false;
 //}
 if(date_debut.getTime() <= date.getTime())
 {
-    console.log(date_debut.getTime() =" " + date.getTime())
+    console.log(date_debut.getTime() +" " + date.getTime())
 var html=' <span style="color :red; font-style:bold;"> ';
 html+="Veuillez saisir une date de d&eacute;but sup&eacute;rieure &agrave; la date d'aujourd'hui";
 html+='</span>';
