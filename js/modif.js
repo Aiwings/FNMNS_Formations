@@ -61,7 +61,7 @@ html += '<input id="champ" required name="'+className+'" type="text" placeholder
 html += '<input  name="id" id="idchamp"  type="hidden" value="'+id+'"/>';
 html += '</p>'; */
 }
-break; 
+//break; 
 }
 html+= '<p style="width:100%;text-align:center;">';
 html += '</p>';
@@ -137,6 +137,7 @@ var valeur = jQuery(el).text();
 var date_debut = new Date(valeur);
 var date_fin = new Date(val);
 }
+console.log(date_debut,date_fin);
 if(testDate(date_debut,date_fin))
 {
 return true;
