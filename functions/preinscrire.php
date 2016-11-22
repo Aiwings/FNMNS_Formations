@@ -46,6 +46,7 @@ foreach ($rep_user as $user)
 {
 if(send($formation,$user))
 {
+$fichier =  str_replace('\\', '', $formation->fichier);
 $url =  "http://".$_SERVER['HTTP_HOST'];
 $urlfichier = $url."/export/".$formation->discipline.'/'.$fichier;
 
