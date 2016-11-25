@@ -24,15 +24,17 @@ getPoints();
 /*****************************************/
 function codeAddress(adresse,data,then) 
 {
-geocoder.geocode( { 'address': adresse}, function(results, status) {
-if (status == google.maps.GeocoderStatus.OK) 
-{
-then(results[0].geometry.location,data);
-} else 
-{
-console.log("Geocode was not successful for the following reason: " + status);
-}
-});
+	geocoder.geocode( { 'address': adresse}, function(results, status) {
+	if (status == google.maps.GeocoderStatus.OK) 
+	{
+	then(results[0].geometry.location,data);
+	} else 
+	{
+	setTimeout(function(){
+		codeAddress(adresse,data,then);
+	},10000);
+	}
+	});
 }
 /**************************************/
 /* Récupération des tracé des régions */
