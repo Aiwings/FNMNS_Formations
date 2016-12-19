@@ -109,11 +109,26 @@ $to = $_POST["email"];
 //$mail->AddBCC('guilhemrr@hotmail.com');
 //$mail->Subject = 'FNMNS | '. "Préinscription";
 $subject = 'FNMNS | '. "Préinscription";
-$headers = array(
-'Content-Type: text/html; charset=UTF-8',
-'BCC: Laurent Tixier <l.tixier@proximitywebpro.fr>;',
-'Reply-To:'.get_bloginfo('name').' <contact@'.$_SERVER['HTTP_HOST'].'>;'
-);
+
+if(strrpos($_SERVER['HTTP_HOST'],"maitre-nageur-sauveteur" ) != false)
+{
+    $headers = array(
+    'Content-Type: text/html; charset=UTF-8',
+    'BCC: Laurent Tixier <l.tixier@proximitywebpro.fr>;',
+    'CC: <riabisoufien@gmail.com>,<jmartin34@orange.fr>,<fnmns66@gmail.com>;',
+    'Reply-To:'.get_bloginfo('name').' <contact@'.$_SERVER['HTTP_HOST'].'>;'
+    );
+}
+else
+{
+      $headers = array(
+    'Content-Type: text/html; charset=UTF-8',
+    'BCC: Laurent Tixier <l.tixier@proximitywebpro.fr>;',
+    'CC: <crf.fnmns@gmail.com>;',
+    'Reply-To:'.get_bloginfo('name').' <contact@'.$_SERVER['HTTP_HOST'].'>;'
+    );
+}
+
 //$mail->msgHTML($body);
 $attachments = array(ABSPATH."/export/".$formation->discipline."/".$formation->fichier);
 //$mail->AddAttachment(ABSPATH."/export/".$formation->discipline."/".$formation->fichier);

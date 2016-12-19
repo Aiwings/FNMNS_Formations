@@ -58,11 +58,9 @@ $docOk = $doc->fileUpload("inscriptions","",$formation."_".$nom."_doc".$i."_");
 if($docOk["success"] !="true") {errors($doc); exit(1); }
 }
 }
-global $wpdb;
-$wpdb->show_errors();
-$reponse_modif =  $wpdb->update(
-"{$wpdb->prefix}preinscrits",
-array(
+
+
+$update =array(
 'date_naissance' => $date_naissance,
 'lieu_naissance' => $lieu_naissance,
 'paiement' => $paiement,
@@ -74,7 +72,13 @@ array(
 'assurance' => $assurance->getName(),
 'defense' => $defense->getName(),
 'certif' => $certif->getName(),
-),
+);
+
+global $wpdb;
+$wpdb->show_errors();
+$reponse_modif =  $wpdb->update(
+"{$wpdb->prefix}preinscrits",$update
+,
 array( 'id' => $_POST['userID'] ),
 array(
 '%s',	// value1
@@ -93,7 +97,14 @@ array( '%d' )
 );
 if($reponse_modif == 1)// will die() true if succefull else it will die() false
 {
-wp_send_json_success();
+    if(sendmail($nom,$formation))
+    {
+        wp_send_json_success();
+    }
+    else{
+        wp_send_json_error("Echec de l'envoi du mail");
+    }
+
 }
 else
 {

@@ -45,6 +45,7 @@ var html = '<span style="color:green;">'
 html+= 'Merci , Votre pré-inscription a bien été prise en compte <br />';
 html+= 'Vous pouvez accèder au dossier de préinscription en cliquant ';
 html+= '<a  href="'+object.data.url+'" target="_blank" title="dossier de préinscription ">ici</a>';
+html+= '<br /> >N\'hésitez pas à consulter vos SPAM';
 html+='</span>';
 }
 else
@@ -133,17 +134,28 @@ document.getElementById("response").innerHTML = data;
 }
 function inscrire(id)
 {
-var data = {
-id:id,
-action:'inscription'
-};
-var ajaxRequest = jQuery.ajax( {
-url :ajaxurl,
-dataType : "JSON",
-method :"POST",
-data : data
-}).done(onInscription)
-.fail(onInscriptionFail);
+    var warning = jQuery("#inscrire_buttn").attr("class");
+
+
+if(warning !="")
+{
+    var r = confirm("Attention! Cet utilisateur n'a pas fournit les pièces requises, Poursuivre ?  ");
+    if (r != true) {
+        return;
+    } 
+}
+
+    var data = {
+    id:id,
+    action:'inscription'
+    };
+    var ajaxRequest = jQuery.ajax( {
+        url :ajaxurl,
+        dataType : "JSON",
+        method :"POST",
+        data : data
+    }).done(onInscription)
+    .fail(onInscriptionFail);
 }
 function onModifPreFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );

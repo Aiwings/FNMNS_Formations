@@ -17,7 +17,7 @@ global $wpdb;
 $update = array(
 "centre" => $centre,
 "adresse"=>$adresse,
-"$code_postal"=> $cp,
+"code_postal"=> $cp,
 "ville"=>$ville,
 "e_mail"=>$email,
 "telephone"=>$tel,

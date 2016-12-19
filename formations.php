@@ -5,7 +5,7 @@
 * GitHub Plugin URI: https://github.com/Aiwings/FNMNS_Formations
 * GitHub Plugin URI: Aiwings/FNMNS_Formations
 * GitHub Branch: master
-* Version: 0.4
+* Version: 0.5
 * Author: Guillaume Roux
 * Text Domain : FNMNS_Formations
 */
@@ -90,6 +90,7 @@ include_once plugin_dir_path( __FILE__ ).'/functions/cleanUp.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/pieces.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/fichier.php';
 include_once plugin_dir_path( __FILE__ ).'/functions/externe.php';
+
 }
 private function include_carte(){
 include_once plugin_dir_path( __FILE__ ).'/carte/poly.php';
@@ -100,6 +101,7 @@ private function include_inscription()
 {
 include_once plugin_dir_path( __FILE__ ).'/inscription/index.php';
 include_once plugin_dir_path( __FILE__ ).'/inscription/update.php';
+include_once plugin_dir_path( __FILE__ ).'/inscription/sendmail.php';
 }
 public function inscription_scripts()
 {

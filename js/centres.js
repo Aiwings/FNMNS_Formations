@@ -142,5 +142,6 @@ alert(err.message);
 }
 function onCreationFail(jqXHR, textStatus){
 alert( "Request failed: " + textStatus );
+console.log(jqXHR);
 }
 }

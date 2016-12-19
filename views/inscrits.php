@@ -72,6 +72,14 @@ Ville
 <?php
 foreach ($reponse_inscrits as $preinscrit)
 {
+    $warningclass = "";
+if(($preinscrit->carte  =="") ||($preinscrit->certif  =="") || ($preinscrit->carte  =="") || ($preinscrit->assurance =="") || ($preinscrit->defense  ==""))
+{
+    $warningclass = "warning";
+}
+
+
+
 ?>
 <div class="row" >
 <form name="modif_pre">
@@ -106,7 +114,7 @@ foreach ($reponse_inscrits as $preinscrit)
 {
 ?>
 <div class="col-md-1">
-<img style="width:30px;cursor:pointer;" src="<?php echo FORMATION_URL;?>img/feu_vert.png" alt="inscrire"  onclick ="inscrire(<?php echo $preinscrit->id; ?>);"title="inscrire" />
+<img id="inscrire_buttn" style="width:30px;cursor:pointer;" class="<?php echo $warningclass;?>" src="<?php echo FORMATION_URL;?>img/feu_vert.png" alt="inscrire"  onclick ="inscrire(<?php echo $preinscrit->id; ?>);"title="inscrire" />
 </div>
 <?php
 }

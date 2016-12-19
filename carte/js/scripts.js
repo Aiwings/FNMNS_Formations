@@ -11,8 +11,20 @@ function initMap()
 {
 geocoder = new google.maps.Geocoder();
 var mapDiv = document.getElementById('map');
+var mapcenter= {};
+console.log(ajaxurl);
+
+if(ajaxurl.indexOf("maitre-nageur-sauveteur") != -1)
+{
+	mapcenter ={lat: 43.3200548, lng: 3.6380331};
+}
+else
+{
+	mapcenter ={lat: 48.3058726, lng: 4.9833027};
+}
+
 map = new google.maps.Map(mapDiv, {
-center: {lat: 48.7765707, lng: 6.1474792},
+center: mapcenter,
 zoom: 7,
 minZoom : 7
 });
